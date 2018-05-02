@@ -1,17 +1,17 @@
 package units;
 
 public class DreadnoughtUnit implements Unit {
-    private int resourceCost = 5;
-    private int combatValue = 5;
-    private int movementSpeed = 1;
-    private int capacity = 0;
-    private String owner;
+    int resourceCost;
+    int combatValue;
+    int movementSpeed;
+    int capacity;
+    String owner;
 
-    public DreadnoughtUnit(int resourceCost, int combatValue, int movementSpeed, int capacity, String owner) {
-        this.resourceCost = resourceCost;
-        this.combatValue = combatValue;
-        this.movementSpeed = movementSpeed;
-        this.capacity = capacity;
+    public DreadnoughtUnit(String owner) {
+        this.resourceCost = 5;
+        this.combatValue = 5;
+        this.movementSpeed = 1;
+        this.capacity = 0;
         this.owner = owner;
     }
 
@@ -36,7 +36,7 @@ public class DreadnoughtUnit implements Unit {
     }
 
     @Override
-    public int getOwner(String owner) {
-        return 0;
+    public String getOwner(String owner) {
+        return owner;
     }
 }

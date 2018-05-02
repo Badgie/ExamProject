@@ -1,17 +1,17 @@
 package units;
 
 public class CruiserUnit implements Unit {
-    private int resourceCost = 2;
-    private int combatValue = 7;
-    private int movementSpeed = 2;
-    private int capacity = 0;
-    private String owner;
+    int resourceCost;
+    int combatValue;
+    int movementSpeed;
+    int capacity;
+    String owner;
 
-    public CruiserUnit(int resourceCost, int combatValue, int movementSpeed, int capacity, String owner) {
-        this.resourceCost = resourceCost;
-        this.combatValue = combatValue;
-        this.movementSpeed = movementSpeed;
-        this.capacity = capacity;
+    public CruiserUnit(String owner) {
+        this.resourceCost = 2;
+        this.combatValue = 7;
+        this.movementSpeed = 2;
+        this.capacity = 0;
         this.owner = owner;
     }
 
@@ -36,7 +36,7 @@ public class CruiserUnit implements Unit {
     }
 
     @Override
-    public int getOwner(String owner) {
-        return 0;
+    public String getOwner(String owner) {
+        return owner;
     }
 }

@@ -10,5 +10,5 @@ public interface Unit {
 
     int getCapacity(int capacity);
 
-    int getOwner(String owner);
+    String getOwner(String owner);
 }

@@ -1,17 +1,17 @@
 package units;
 
 public class DestroyerUnit implements Unit{
-    private int resourceCost = 1;
-    private int combatValue = 9;
-    private int movementSpeed = 2;
-    private int capacity = 0;
-    private String owner;
+    int resourceCost;
+    int combatValue;
+    int movementSpeed;
+    int capacity;
+    String owner;
 
-    public DestroyerUnit(int resourceCost, int combatValue, int movementSpeed, int capacity, String owner) {
-        this.resourceCost = resourceCost;
-        this.combatValue = combatValue;
-        this.movementSpeed = movementSpeed;
-        this.capacity = capacity;
+    public DestroyerUnit(String owner) {
+        this.resourceCost = 1;
+        this.combatValue = 9;
+        this.movementSpeed = 2;
+        this.capacity = 0;
         this.owner = owner;
     }
 
@@ -36,7 +36,7 @@ public class DestroyerUnit implements Unit{
     }
 
     @Override
-    public int getOwner(String owner) {
-        return 0;
+    public String getOwner(String owner) {
+        return owner;
     }
 }
