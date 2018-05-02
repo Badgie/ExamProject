@@ -2,7 +2,7 @@ package units;
 
 public interface Unit {
 
-    /* int getResourceCost(int resourceCost);
+    int getResourceCost(int resourceCost);
 
     int getCombatValue(int combatValue);
 
@@ -10,5 +10,5 @@ public interface Unit {
 
     int getCapacity(int capacity);
 
-    int getOwner(String owner);*/
+    int getOwner(String owner);
 }

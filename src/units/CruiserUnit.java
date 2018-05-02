@@ -5,27 +5,38 @@ public class CruiserUnit implements Unit {
     private int combatValue = 7;
     private int movementSpeed = 2;
     private int capacity = 0;
+    private String owner;
 
-    public CruiserUnit(int resourceCost, int combatValue, int movementSpeed, int capacity) {
+    public CruiserUnit(int resourceCost, int combatValue, int movementSpeed, int capacity, String owner) {
         this.resourceCost = resourceCost;
         this.combatValue = combatValue;
         this.movementSpeed = movementSpeed;
         this.capacity = capacity;
+        this.owner = owner;
     }
 
-    public int getResourceCost() {
-        return resourceCost;
+    @Override
+    public int getResourceCost(int resourceCost) {
+        return 0;
     }
 
-    public int getCombatValue() {
-        return combatValue;
+    @Override
+    public int getCombatValue(int combatValue) {
+        return 0;
     }
 
-    public int getMovementSpeed() {
-        return movementSpeed;
+    @Override
+    public int getMovementSpeed(int movementSpeed) {
+        return 0;
     }
 
-    public int getCapacity() {
-        return capacity;
+    @Override
+    public int getCapacity(int capacity) {
+        return 0;
+    }
+
+    @Override
+    public int getOwner(String owner) {
+        return 0;
     }
 }
