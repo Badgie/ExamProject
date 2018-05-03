@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc01e971-dd80-42bb-b3b2-d7f65bbf43f3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/units/CarrierUnit.java" afterPath="$PROJECT_DIR$/src/units/CarrierUnit.java" />
-      <change beforePath="$PROJECT_DIR$/src/units/CruiserUnit.java" afterPath="$PROJECT_DIR$/src/units/CruiserUnit.java" />
-      <change beforePath="$PROJECT_DIR$/src/units/DestroyerUnit.java" afterPath="$PROJECT_DIR$/src/units/DestroyerUnit.java" />
-      <change beforePath="$PROJECT_DIR$/src/units/DreadnoughtUnit.java" afterPath="$PROJECT_DIR$/src/units/DreadnoughtUnit.java" />
-      <change beforePath="$PROJECT_DIR$/src/units/Unit.java" afterPath="$PROJECT_DIR$/src/units/Unit.java" />
-    </list>
+    <list default="true" id="fc01e971-dd80-42bb-b3b2-d7f65bbf43f3" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +14,7 @@
       <FILTER>units.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/ExamProject$All_in_ExamProject.coverage" NAME="All in ExamProject Coverage Results" MODIFIED="1525342287242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ExamProject$HexaSystemTest_testHexaSystem.coverage" NAME="HexaSystemTest.testHexaSystem Coverage Results" MODIFIED="1525358474701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ExamProject$GalaxyTest_testSampleGalaxy.coverage" NAME="GalaxyTest.testSampleGalaxy Coverage Results" MODIFIED="1525355547901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ExamProject$CarrierUnitTest_testCarrierUnit.coverage" NAME="CarrierUnitTest.testCarrierUnit Coverage Results" MODIFIED="1525298641183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>units.*</FILTER>
@@ -39,7 +34,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Planet.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Planet.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Planet.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
@@ -52,15 +47,14 @@
           <file leaf-file-name="HexaSystem.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/HexaSystem.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+                <state relative-caret-position="425">
+                  <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#601#602#0" expanded="true" />
                     <element signature="e#632#633#0" expanded="true" />
                     <element signature="e#667#668#0" expanded="true" />
                     <element signature="e#695#696#0" expanded="true" />
-                    <element signature="e#733#734#0" expanded="true" />
                     <element signature="e#764#765#0" expanded="true" />
                     <element signature="e#803#804#0" expanded="true" />
                     <element signature="e#833#834#0" expanded="true" />
@@ -78,7 +72,7 @@
           <file leaf-file-name="Galaxy.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Galaxy.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="230">
+                <state relative-caret-position="842">
                   <caret line="59" column="22" lean-forward="true" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -170,7 +164,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CarrierUnit.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="CarrierUnit.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/units/CarrierUnit.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="714">
@@ -223,7 +217,7 @@
           <file leaf-file-name="GalaxyTest.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Test/GalaxyTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="935">
+                <state relative-caret-position="1190">
                   <caret line="79" column="5" lean-forward="false" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
                   <folding />
                 </state>
@@ -233,8 +227,8 @@
           <file leaf-file-name="HexaSystemTest.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Test/HexaSystemTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="33" column="53" lean-forward="true" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
+                <state relative-caret-position="669">
+                  <caret line="73" column="5" lean-forward="false" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
                   <folding />
                 </state>
               </provider>
@@ -243,8 +237,8 @@
           <file leaf-file-name="PlanetTest.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Test/PlanetTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+                <state relative-caret-position="153">
+                  <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
                   <folding />
                 </state>
               </provider>
@@ -286,18 +280,18 @@
         <option value="$PROJECT_DIR$/Test/units/DestroyerUnitTest.java" />
         <option value="$PROJECT_DIR$/Test/units/DreadnoughtUnitTest.java" />
         <option value="$PROJECT_DIR$/Test/units/UnitTest.java" />
-        <option value="$PROJECT_DIR$/Test/PlanetTest.java" />
         <option value="$PROJECT_DIR$/Test/PlayerTest.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Galaxy.java" />
-        <option value="$PROJECT_DIR$/src/HexaSystem.java" />
         <option value="$PROJECT_DIR$/Test/GalaxyTest.java" />
-        <option value="$PROJECT_DIR$/Test/HexaSystemTest.java" />
         <option value="$PROJECT_DIR$/src/units/Unit.java" />
         <option value="$PROJECT_DIR$/src/units/DreadnoughtUnit.java" />
         <option value="$PROJECT_DIR$/src/units/DestroyerUnit.java" />
         <option value="$PROJECT_DIR$/src/units/CruiserUnit.java" />
         <option value="$PROJECT_DIR$/src/units/CarrierUnit.java" />
+        <option value="$PROJECT_DIR$/src/HexaSystem.java" />
+        <option value="$PROJECT_DIR$/Test/HexaSystemTest.java" />
+        <option value="$PROJECT_DIR$/Test/PlanetTest.java" />
       </list>
     </option>
   </component>
@@ -396,7 +390,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GalaxyTest.testSampleGalaxy">
+  <component name="RunManager" selected="JUnit.HexaSystemTest.testHexaSystem">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -522,6 +516,26 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration name="HexaSystemTest.testHexaSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="ExamProject" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HexaSystemTest" />
+      <option name="METHOD_NAME" value="testHexaSystem" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -582,19 +596,21 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <list size="5">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.CarrierUnitTest.testCarrierUnit" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.DestroyerUnitTest.testDestroyerUnit" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.All in ExamProject" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.GalaxyTest.testSampleGalaxy" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.HexaSystemTest.testHexaSystem" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.GalaxyTest.testSampleGalaxy" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.All in ExamProject" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.DestroyerUnitTest.testDestroyerUnit" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.CarrierUnitTest.testCarrierUnit" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.HexaSystemTest.testHexaSystem" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.GalaxyTest.testSampleGalaxy" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.All in ExamProject" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.DestroyerUnitTest.testDestroyerUnit" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CarrierUnitTest.testCarrierUnit" />
       </list>
     </recent_temporary>
   </component>
@@ -629,6 +645,9 @@
     </history-entry>
     <history-entry file="GalaxyTest_testSampleGalaxy - 2018.05.03 at 15h 52m 35s.xml">
       <configuration name="GalaxyTest.testSampleGalaxy" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HexaSystemTest_testHexaSystem - 2018.05.03 at 16h 41m 21s.xml">
+      <configuration name="HexaSystemTest.testHexaSystem" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -743,14 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test/PlanetTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -770,80 +781,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Planet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="48" lean-forward="false" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Galaxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="59" column="22" lean-forward="true" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#149#150#0" expanded="true" />
-            <element signature="e#197#198#0" expanded="true" />
-            <element signature="e#241#242#0" expanded="true" />
-            <element signature="e#271#272#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HexaSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#601#602#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#667#668#0" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#733#734#0" expanded="true" />
-            <element signature="e#764#765#0" expanded="true" />
-            <element signature="e#803#804#0" expanded="true" />
-            <element signature="e#833#834#0" expanded="true" />
-            <element signature="e#875#876#0" expanded="true" />
-            <element signature="e#903#904#0" expanded="true" />
-            <element signature="e#949#950#0" expanded="true" />
-            <element signature="e#979#980#0" expanded="true" />
-            <element signature="e#1025#1026#0" expanded="true" />
-            <element signature="e#1086#1087#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/PlayerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/GalaxyTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="79" column="5" lean-forward="false" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/HexaSystemTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="33" column="53" lean-forward="true" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -937,6 +878,83 @@
             <element signature="e#892#893#0" expanded="true" />
             <element signature="e#925#926#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/PlayerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Galaxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="842">
+          <caret line="59" column="22" lean-forward="true" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#149#150#0" expanded="true" />
+            <element signature="e#197#198#0" expanded="true" />
+            <element signature="e#241#242#0" expanded="true" />
+            <element signature="e#271#272#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/GalaxyTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="79" column="5" lean-forward="false" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HexaSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#601#602#0" expanded="true" />
+            <element signature="e#632#633#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#695#696#0" expanded="true" />
+            <element signature="e#764#765#0" expanded="true" />
+            <element signature="e#803#804#0" expanded="true" />
+            <element signature="e#833#834#0" expanded="true" />
+            <element signature="e#875#876#0" expanded="true" />
+            <element signature="e#903#904#0" expanded="true" />
+            <element signature="e#949#950#0" expanded="true" />
+            <element signature="e#979#980#0" expanded="true" />
+            <element signature="e#1025#1026#0" expanded="true" />
+            <element signature="e#1086#1087#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/PlanetTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Planet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/HexaSystemTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="669">
+          <caret line="73" column="5" lean-forward="false" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
