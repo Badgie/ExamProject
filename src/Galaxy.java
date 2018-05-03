@@ -91,34 +91,23 @@ public class Galaxy {
                 verdict = true;
             }
         } catch(PrintException e) {
-            e.printStackTrace();
+            e.getMessage();
         }
         return verdict;
     }
 
-    //TODO: fix this monstrosity
     private boolean checkCenterGalaxyPlanets(Galaxy galaxy) throws PrintException {
-        boolean verdict = false;
-        int center = 0;
-        int systemIndex = galaxy.getSystems().size();
-        for(int i = 0; i < systemIndex; i++) {
-            if(galaxy.getSystems().get(i).getCardinal().equals("Center")) {
-                center = i;
-            }
-        }
-        if(galaxy.getSystems().get(center).getSystemPlanets().get(0).getName().equals("Mecatol Rex")
-                && galaxy.getSystems().get(center).getSystemPlanets().size() == 1) {
-            verdict = true;
-        } else {
-            throw new PrintException("ERROR: Either the center system contains planets other than " +
+            if(getCenterSystemPlanets(galaxy).contains("Mecatol Rex")
+                    && getCenterSystemPlanets(galaxy).size() == 1) {
+            } else {
+                throw new PrintException("ERROR: Either the center system contains planets other than " +
                     "Mecatol Rex, or it does not contain Mecatol Rex.");
         }
-
-        return verdict;
+        return true;
     }
 
     private boolean checkForDuplicatePlanets(Galaxy galaxy) throws PrintException {
-        if(galaxy.getPlanets().size() == getSystemPlanetNames(galaxy).size()) {
+        if(galaxy.getPlanets().size() == getGalaxyPlanetNames(galaxy).size()) {
         } else {
             throw new PrintException("ERROR: A planet exists more than once in the galaxy.");
         }
@@ -126,15 +115,13 @@ public class Galaxy {
     }
 
     private boolean checkForMoreThanThreePlanets(Galaxy galaxy) throws PrintException {
-        boolean verdict = false;
         for(HexaSystem e : galaxy.getSystems()) {
             if(getSystemPlanetNames(e).size() <= 3) {
-                verdict = true;
             } else {
                 throw new PrintException("ERROR: A system contains more than three planets.");
             }
         }
-        return verdict;
+        return true;
     }
 
     private boolean checkCardinalDirections(Galaxy galaxy) throws PrintException {
@@ -143,12 +130,33 @@ public class Galaxy {
         return verdict;
     }
 
-    private ArrayList<String> getSystemPlanetNames(Galaxy galaxy) {
+    private ArrayList<String> getGalaxyPlanetNames(Galaxy galaxy) {
         ArrayList<String> array = new ArrayList<>();
         for(Planet e : galaxy.getPlanets()) {
             array.add(e.getName());
         }
         return array;
+    }
+
+    private ArrayList<String> getSystemPlanetNames(HexaSystem system) {
+        ArrayList<String> array = new ArrayList<>();
+        for(Planet e : system.getSystemPlanets()) {
+            array.add(e.getName());
+        }
+        return array;
+    }
+
+    private ArrayList<String> getCenterSystemPlanets(Galaxy galaxy) {
+        ArrayList<String> planets = new ArrayList<>();
+
+        for(int i = 0; i < galaxy.getSystems().size(); i++) {
+            if(galaxy.getSystems().get(i).getCardinal().equals("Center")) {
+                for (Planet e : galaxy.getSystems().get(i).getSystemPlanets()) {
+                    planets.add(e.toString());
+                }
+            }
+        }
+        return planets;
     }
 }
 

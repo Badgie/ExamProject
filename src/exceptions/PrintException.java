@@ -3,7 +3,7 @@ package exceptions;
 public class PrintException extends Exception {
     String message = null;
 
-    public printMessage() {
+    public PrintException() {
         super();
     }
 
@@ -11,5 +11,4 @@ public class PrintException extends Exception {
         super(message);
         this.message = message;
     }
-
 }
