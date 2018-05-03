@@ -25,8 +25,16 @@ public class HexaSystem {
         ships.remove(o);
     }
 
-    public List<Unit> getShips() {
+    public void addPlanet(Planet o) {
+        planets.add(o);
+    }
+
+    public List<Unit> getSystemShips() {
         return ships;
+    }
+
+    public List<Planet> getSystemPlanets() {
+        return planets;
     }
 
     @Override
