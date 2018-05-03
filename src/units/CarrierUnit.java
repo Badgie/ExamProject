@@ -5,6 +5,7 @@ public class CarrierUnit implements Unit {
     int combatValue;
     int movementSpeed;
     int capacity;
+    String unitType;
     Object owner;
 
     public CarrierUnit(Object owner) {
@@ -12,6 +13,7 @@ public class CarrierUnit implements Unit {
         this.combatValue = 9;
         this.movementSpeed = 1;
         this.capacity = 6;
+        this.unitType = "Carrier";
         this.owner = owner;
     }
 
@@ -33,6 +35,11 @@ public class CarrierUnit implements Unit {
     @Override
     public int getCapacity() {
         return this.capacity;
+    }
+
+    @Override
+    public String getUnitType() {
+        return this.unitType;
     }
 
     @Override
