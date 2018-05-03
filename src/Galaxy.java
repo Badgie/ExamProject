@@ -80,82 +80,72 @@ public class Galaxy {
     }
 
     public boolean checkIfGalaxyIsLegal(Galaxy galaxy) {
-        boolean condOne = checkCenterGalaxyPlanets(galaxy);
-        boolean condTwo = checkForDuplicatePlanets(galaxy);
-        boolean condThree = checkForMoreThanThreePlanets(galaxy);
-        boolean condFour = checkCardinalDirections(galaxy);
         boolean verdict = false;
+        try {
+            boolean condOne = checkCenterGalaxyPlanets(galaxy);
+            boolean condTwo = checkForDuplicatePlanets(galaxy);
+            boolean condThree = checkForMoreThanThreePlanets(galaxy);
+            boolean condFour = checkCardinalDirections(galaxy);
 
-        if(condOne && condTwo && condThree && condFour) {
-            verdict = true;
+            if (condOne && condTwo && condThree && condFour) {
+                verdict = true;
+            }
+        } catch(PrintException e) {
+            e.printStackTrace();
         }
-
         return verdict;
     }
 
     //TODO: fix this monstrosity
     private boolean checkCenterGalaxyPlanets(Galaxy galaxy) throws PrintException {
         boolean verdict = false;
-        try {
-            int center = 0;
-            int systemIndex = galaxy.getSystems().size();
-            for(int i = 0; i < systemIndex; i++) {
-                if(galaxy.getSystems().get(i).getCardinal().equals("Center")) {
-                    center = i;
-                }
+        int center = 0;
+        int systemIndex = galaxy.getSystems().size();
+        for(int i = 0; i < systemIndex; i++) {
+            if(galaxy.getSystems().get(i).getCardinal().equals("Center")) {
+                center = i;
             }
-            if(galaxy.getSystems().get(center).getSystemPlanets().get(0).getName().equals("Mecatol Rex")
-                    && galaxy.getSystems().get(center).getSystemPlanets().size() == 1) {
-                verdict = true;
-            }
-        } catch(PrintException e) {
-            String message = "ERROR: Either Mecatol Rex does not exist, or there are too many planets in the center system.";
-            e.printMessage(message);
         }
+        if(galaxy.getSystems().get(center).getSystemPlanets().get(0).getName().equals("Mecatol Rex")
+                && galaxy.getSystems().get(center).getSystemPlanets().size() == 1) {
+            verdict = true;
+        } else {
+            throw new PrintException("ERROR: Either the center system contains planets other than " +
+                    "Mecatol Rex, or it does not contain Mecatol Rex.");
+        }
+
         return verdict;
     }
 
     private boolean checkForDuplicatePlanets(Galaxy galaxy) throws PrintException {
-        try {
-            HashSet<String> planets = new HashSet<>();
-            for(HexaSystem e : galaxy.getSystems()) {
-                planets.addAll(getSystemPlanetNames(e));
-            }
-        } catch(PrintException e) {
-            String message = "";
-            e.printMessage(message);
+        if(galaxy.getPlanets().size() == getSystemPlanetNames(galaxy).size()) {
+        } else {
+            throw new PrintException("ERROR: A planet exists more than once in the galaxy.");
         }
         return true;
     }
 
     private boolean checkForMoreThanThreePlanets(Galaxy galaxy) throws PrintException {
         boolean verdict = false;
-        try {
-            for(HexaSystem e : galaxy.getSystems()) {
-                if(getSystemPlanetNames(e).size() <= 3) {
-                    verdict = true;
-                }
+        for(HexaSystem e : galaxy.getSystems()) {
+            if(getSystemPlanetNames(e).size() <= 3) {
+                verdict = true;
+            } else {
+                throw new PrintException("ERROR: A system contains more than three planets.");
             }
-        } catch(PrintException e) {
-
         }
         return verdict;
     }
 
     private boolean checkCardinalDirections(Galaxy galaxy) throws PrintException {
         boolean verdict = false;
-        try {
-
-        } catch(PrintException e) {
-
-        }
 
         return verdict;
     }
 
-    private ArrayList<String> getSystemPlanetNames(HexaSystem system) {
+    private ArrayList<String> getSystemPlanetNames(Galaxy galaxy) {
         ArrayList<String> array = new ArrayList<>();
-        for(Planet e : system.getSystemPlanets()) {
+        for(Planet e : galaxy.getPlanets()) {
             array.add(e.getName());
         }
         return array;

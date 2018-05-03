@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc01e971-dd80-42bb-b3b2-d7f65bbf43f3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/Galaxy.java" afterPath="$PROJECT_DIR$/src/Galaxy.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,8 +74,8 @@
           <file leaf-file-name="Galaxy.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Galaxy.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="431">
-                  <caret line="126" column="9" lean-forward="true" selection-start-line="126" selection-start-column="9" selection-end-line="126" selection-end-column="9" />
+                <state relative-caret-position="561">
+                  <caret line="125" column="5" lean-forward="true" selection-start-line="125" selection-start-column="5" selection-end-line="125" selection-end-column="5" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#209#210#0" expanded="true" />
@@ -92,10 +91,9 @@
             <entry file="file://$PROJECT_DIR$/src/exceptions/PrintException.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="85">
-                  <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+                  <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
                   <folding>
-                    <element signature="e#115#116#0" expanded="true" />
-                    <element signature="e#145#146#0" expanded="true" />
+                    <element signature="e#146#147#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -300,6 +298,7 @@
         <option value="$PROJECT_DIR$/src/exceptions/GalaxyExceptions.java" />
         <option value="$PROJECT_DIR$/src/exceptions/GalaxyException.java" />
         <option value="$PROJECT_DIR$/src/exceptions/CustomException.java" />
+        <option value="$PROJECT_DIR$/src/exceptions/PrintException.java" />
         <option value="$PROJECT_DIR$/src/Galaxy.java" />
       </list>
     </option>
@@ -960,18 +959,17 @@
     <entry file="file://$PROJECT_DIR$/src/exceptions/PrintException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
           <folding>
-            <element signature="e#115#116#0" expanded="true" />
-            <element signature="e#145#146#0" expanded="true" />
+            <element signature="e#146#147#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Galaxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="126" column="9" lean-forward="true" selection-start-line="126" selection-start-column="9" selection-end-line="126" selection-end-column="9" />
+        <state relative-caret-position="561">
+          <caret line="125" column="5" lean-forward="true" selection-start-line="125" selection-start-column="5" selection-end-line="125" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#209#210#0" expanded="true" />
