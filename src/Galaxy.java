@@ -1,6 +1,8 @@
+import exceptions.PrintException;
 import units.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class Galaxy {
@@ -76,4 +78,88 @@ public class Galaxy {
         galaxy.getSystems().get(1).addShip(new CruiserUnit(red));
         galaxy.getSystems().get(1).addShip(new CarrierUnit(red));
     }
+
+    public boolean checkIfGalaxyIsLegal(Galaxy galaxy) {
+        boolean condOne = checkCenterGalaxyPlanets(galaxy);
+        boolean condTwo = checkForDuplicatePlanets(galaxy);
+        boolean condThree = checkForMoreThanThreePlanets(galaxy);
+        boolean condFour = checkCardinalDirections(galaxy);
+        boolean verdict = false;
+
+        if(condOne && condTwo && condThree && condFour) {
+            verdict = true;
+        }
+
+        return verdict;
+    }
+
+    //TODO: fix this monstrosity
+    private boolean checkCenterGalaxyPlanets(Galaxy galaxy) throws PrintException {
+        boolean verdict = false;
+        try {
+            int center = 0;
+            int systemIndex = galaxy.getSystems().size();
+            for(int i = 0; i < systemIndex; i++) {
+                if(galaxy.getSystems().get(i).getCardinal().equals("Center")) {
+                    center = i;
+                }
+            }
+            if(galaxy.getSystems().get(center).getSystemPlanets().get(0).getName().equals("Mecatol Rex")
+                    && galaxy.getSystems().get(center).getSystemPlanets().size() == 1) {
+                verdict = true;
+            }
+        } catch(PrintException e) {
+            String message = "ERROR: Either Mecatol Rex does not exist, or there are too many planets in the center system.";
+            e.printMessage(message);
+        }
+        return verdict;
+    }
+
+    private boolean checkForDuplicatePlanets(Galaxy galaxy) throws PrintException {
+        try {
+            HashSet<String> planets = new HashSet<>();
+            for(HexaSystem e : galaxy.getSystems()) {
+                planets.addAll(getSystemPlanetNames(e));
+            }
+        } catch(PrintException e) {
+            String message = "";
+            e.printMessage(message);
+        }
+        return true;
+    }
+
+    private boolean checkForMoreThanThreePlanets(Galaxy galaxy) throws PrintException {
+        boolean verdict = false;
+        try {
+            for(HexaSystem e : galaxy.getSystems()) {
+                if(getSystemPlanetNames(e).size() <= 3) {
+                    verdict = true;
+                }
+            }
+        } catch(PrintException e) {
+
+        }
+        return verdict;
+    }
+
+    private boolean checkCardinalDirections(Galaxy galaxy) throws PrintException {
+        boolean verdict = false;
+        try {
+
+        } catch(PrintException e) {
+
+        }
+
+        return verdict;
+    }
+
+    private ArrayList<String> getSystemPlanetNames(HexaSystem system) {
+        ArrayList<String> array = new ArrayList<>();
+        for(Planet e : system.getSystemPlanets()) {
+            array.add(e.getName());
+        }
+        return array;
+    }
 }
+
+
