@@ -10,5 +10,5 @@ public interface Unit {
 
     int getCapacity();
 
-    String getOwner();
+    Object getOwner();
 }

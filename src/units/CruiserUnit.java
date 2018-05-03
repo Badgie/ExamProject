@@ -5,9 +5,9 @@ public class CruiserUnit implements Unit {
     int combatValue;
     int movementSpeed;
     int capacity;
-    String owner;
+    Object owner;
 
-    public CruiserUnit(String owner) {
+    public CruiserUnit(Object owner) {
         this.resourceCost = 2;
         this.combatValue = 7;
         this.movementSpeed = 2;
@@ -36,7 +36,7 @@ public class CruiserUnit implements Unit {
     }
 
     @Override
-    public String getOwner() {
+    public Object getOwner() {
         return this.owner;
     }
 }

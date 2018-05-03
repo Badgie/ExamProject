@@ -5,9 +5,9 @@ public class DreadnoughtUnit implements Unit {
     int combatValue;
     int movementSpeed;
     int capacity;
-    String owner;
+    Object owner;
 
-    public DreadnoughtUnit(String owner) {
+    public DreadnoughtUnit(Object owner) {
         this.resourceCost = 5;
         this.combatValue = 5;
         this.movementSpeed = 1;
@@ -36,7 +36,7 @@ public class DreadnoughtUnit implements Unit {
     }
 
     @Override
-    public String getOwner() {
+    public Object getOwner() {
         return this.owner;
     }
 }

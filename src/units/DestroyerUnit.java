@@ -5,9 +5,9 @@ public class DestroyerUnit implements Unit {
     int combatValue;
     int movementSpeed;
     int capacity;
-    String owner;
+    Object owner;
 
-    public DestroyerUnit(String owner) {
+    public DestroyerUnit(Object owner) {
         this.resourceCost = 1;
         this.combatValue = 9;
         this.movementSpeed = 2;
@@ -36,7 +36,7 @@ public class DestroyerUnit implements Unit {
     }
 
     @Override
-    public String getOwner() {
+    public Object getOwner() {
         return this.owner;
     }
 }
