@@ -3,6 +3,7 @@ import units.Unit;
 import java.util.ArrayList;
 import java.util.List;
 
+// Named HexaSystem to avoid clashes with System method
 public class HexaSystem {
 
     private String cardinal;
@@ -15,6 +16,10 @@ public class HexaSystem {
         this.neighbors = new ArrayList<>();
         this.planets = new ArrayList<>();
         this.ships = new ArrayList<>();
+    }
+
+    public String getCardinal() {
+        return cardinal;
     }
 
     public void addShip(Unit o) {

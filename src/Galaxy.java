@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Galaxy {
-    private List<HexaSystem> systems;
+    public List<HexaSystem> systems;
 
     public Galaxy() {
         this.systems = new ArrayList<>();
@@ -39,46 +39,41 @@ public class Galaxy {
     }
 
     public void sampleGalaxy() {
+        // Generate galaxy
+        Galaxy galaxy = new Galaxy();
+
         // Players
         Player blue = new Player("Crassus", "The Emirates of Hacan", "Blue");
         Player red = new Player("Pompey", "The Federation of Sol", "Red");
 
         // Systems
-        HexaSystem center = new HexaSystem("Center");
-        HexaSystem north = new HexaSystem("North");
-        HexaSystem northEast = new HexaSystem("North East");
-        HexaSystem southEast = new HexaSystem("South East");
-        HexaSystem south = new HexaSystem("South");
-        HexaSystem southWest = new HexaSystem("South West");
-        HexaSystem northWest = new HexaSystem("North West");
+        List<HexaSystem> sampleSystems = new ArrayList<>();
+        sampleSystems.add(new HexaSystem("Center"));
+        sampleSystems.add(new HexaSystem("North"));
+        sampleSystems.add(new HexaSystem("North East"));
+        sampleSystems.add(new HexaSystem("South East"));
+        sampleSystems.add(new HexaSystem("South"));
+        sampleSystems.add(new HexaSystem("South West"));
+        sampleSystems.add(new HexaSystem("North West"));
+        galaxy.systems.addAll(sampleSystems);
 
         // Add planets
-        center.addPlanet(new Planet("Mecatol Rex", 5));
-        north.addPlanet(new Planet("Vega Minor", 1));
-        north.addPlanet(new Planet("Vega Major", 3));
-        southEast.addPlanet(new Planet("Industrex", 6));
-        south.addPlanet(new Planet("Rigel I", 3));
-        south.addPlanet(new Planet("Rigel II", 2));
-        northWest.addPlanet(new Planet("Mirage", 4));
-
-        // Generate ships - blue player
-        DreadnoughtUnit dreadnought1 = new DreadnoughtUnit(blue);
-        DreadnoughtUnit dreadnought2 = new DreadnoughtUnit(blue);
-        DestroyerUnit destroyer = new DestroyerUnit(blue);
-
-        // Generate ships - red player
-        CruiserUnit cruiser1 = new CruiserUnit(red);
-        CruiserUnit cruiser2 = new CruiserUnit(red);
-        CarrierUnit carrier = new CarrierUnit(red);
+        galaxy.getSystems().get(0).addPlanet(new Planet("Mecatol Rex", 5));
+        galaxy.getSystems().get(1).addPlanet(new Planet("Vega Minor", 1));
+        galaxy.getSystems().get(1).addPlanet(new Planet("Vega Major", 3));
+        galaxy.getSystems().get(3).addPlanet(new Planet("Industrex", 6));
+        galaxy.getSystems().get(4).addPlanet(new Planet("Rigel I", 3));
+        galaxy.getSystems().get(4).addPlanet(new Planet("Rigel II", 2));
+        galaxy.getSystems().get(6).addPlanet(new Planet("Mirage", 4));
 
         // Add blue ships to system
-        center.addShip(dreadnought1);
-        center.addShip(dreadnought2);
-        center.addShip(destroyer);
+        galaxy.getSystems().get(0).addShip(new DreadnoughtUnit(blue));
+        galaxy.getSystems().get(0).addShip(new DreadnoughtUnit(blue));
+        galaxy.getSystems().get(0).addShip(new DestroyerUnit(blue));
 
         // Add red ships to system
-        north.addShip(cruiser1);
-        north.addShip(cruiser2);
-        north.addShip(carrier);
+        galaxy.getSystems().get(1).addShip(new CruiserUnit(red));
+        galaxy.getSystems().get(1).addShip(new CruiserUnit(red));
+        galaxy.getSystems().get(1).addShip(new CarrierUnit(red));
     }
 }
