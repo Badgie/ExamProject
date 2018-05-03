@@ -2,13 +2,13 @@ package units;
 
 public interface Unit {
 
-    int getResourceCost(int resourceCost);
+    int getResourceCost();
 
-    int getCombatValue(int combatValue);
+    int getCombatValue();
 
-    int getMovementSpeed(int movementSpeed);
+    int getMovementSpeed();
 
-    int getCapacity(int capacity);
+    int getCapacity();
 
-    String getOwner(String owner);
+    String getOwner();
 }

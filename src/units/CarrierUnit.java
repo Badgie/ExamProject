@@ -16,27 +16,27 @@ public class CarrierUnit implements Unit {
     }
 
     @Override
-    public int getResourceCost(int resourceCost) {
-        return 0;
+    public int getResourceCost() {
+        return this.resourceCost;
     }
 
     @Override
-    public int getCombatValue(int combatValue) {
-        return 0;
+    public int getCombatValue() {
+        return this.combatValue;
     }
 
     @Override
-    public int getMovementSpeed(int movementSpeed) {
-        return 0;
+    public int getMovementSpeed() {
+        return this.movementSpeed;
     }
 
     @Override
-    public int getCapacity(int capacity) {
-        return 0;
+    public int getCapacity() {
+        return this.capacity;
     }
 
     @Override
-    public String getOwner(String owner) {
-        return owner;
+    public String getOwner() {
+        return this.owner;
     }
 }
