@@ -125,9 +125,12 @@ public class Galaxy {
     }
 
     private boolean checkCardinalDirections(Galaxy galaxy) throws PrintException {
-        boolean verdict = false;
+        for(HexaSystem e : galaxy.getSystems()) {
+            e.setNeighbors(galaxy, e);
+        }
+        
 
-        return verdict;
+        return true;
     }
 
     private ArrayList<String> getGalaxyPlanetNames(Galaxy galaxy) {

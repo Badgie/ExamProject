@@ -1,3 +1,4 @@
+import exceptions.PrintException;
 import units.Unit;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ public class HexaSystem {
     private List<Planet> planets;
     private List<Unit> ships;
 
-    public HexaSystem(String cardinal/*, List<HexaSystem> neighbors, List<Planet> planets, List<Unit> ships*/) {
+    public HexaSystem(String cardinal) {
         this.cardinal = cardinal;
         this.neighbors = new ArrayList<>();
         this.planets = new ArrayList<>();
@@ -20,6 +21,10 @@ public class HexaSystem {
 
     public String getCardinal() {
         return cardinal;
+    }
+
+    public List<HexaSystem> getNeighbors() {
+        return neighbors;
     }
 
     public void addShip(Unit o) {
@@ -34,6 +39,10 @@ public class HexaSystem {
         planets.add(o);
     }
 
+    public void addNeighbor(HexaSystem o) {
+        neighbors.add(o);
+    }
+
     public List<Unit> getSystemShips() {
         return ships;
     }
@@ -45,5 +54,97 @@ public class HexaSystem {
     @Override
     public String toString() {
         return "HexaSystem{" + "ships=" + ships + '}';
+    }
+
+    private HexaSystem findNeighbor(Galaxy galaxy, String cardinality) throws PrintException {
+        boolean verdict = false;
+        for(HexaSystem e : galaxy.getSystems()) {
+            if(e.getCardinal().equals(cardinality)) {
+                verdict = true;
+            }
+        }
+        HexaSystem neighbor;
+        if(verdict) {
+            neighbor = new HexaSystem(cardinality);
+        } else {
+            throw new PrintException("ERROR: A system is missing.");
+        }
+        return neighbor;
+    }
+
+    public void setNeighbors(Galaxy galaxy, HexaSystem system) {
+        switch(system.getCardinal()) {
+            case "Center":
+                try {
+                    system.addNeighbor(findNeighbor(galaxy, "North"));
+                    system.addNeighbor(findNeighbor(galaxy, "North East"));
+                    system.addNeighbor(findNeighbor(galaxy, "North West"));
+                    system.addNeighbor(findNeighbor(galaxy, "South"));
+                    system.addNeighbor(findNeighbor(galaxy, "South East"));
+                    system.addNeighbor(findNeighbor(galaxy, "South West"));
+                } catch(PrintException e) {
+                    e.getMessage();
+                }
+                break;
+
+            case "North":
+                try {
+                    system.addNeighbor(findNeighbor(galaxy, "Center"));
+                    system.addNeighbor(findNeighbor(galaxy, "North East"));
+                    system.addNeighbor(findNeighbor(galaxy, "North West"));
+                } catch(PrintException e) {
+                    e.getMessage();
+                }
+                break;
+
+            case "North East":
+                try {
+                    system.addNeighbor(findNeighbor(galaxy, "Center"));
+                    system.addNeighbor(findNeighbor(galaxy, "North"));
+                    system.addNeighbor(findNeighbor(galaxy, "South East"));
+                } catch(PrintException e) {
+                    e.getMessage();
+                }
+                break;
+
+            case "North West":
+                try {
+                    system.addNeighbor(findNeighbor(galaxy, "Center"));
+                    system.addNeighbor(findNeighbor(galaxy, "North"));
+                    system.addNeighbor(findNeighbor(galaxy, "South West"));
+                } catch(PrintException e) {
+                    e.getMessage();
+                }
+                break;
+
+            case "South":
+                try {
+                    system.addNeighbor(findNeighbor(galaxy, "Center"));
+                    system.addNeighbor(findNeighbor(galaxy, "South East"));
+                    system.addNeighbor(findNeighbor(galaxy, "South West"));
+                } catch(PrintException e) {
+                    e.getMessage();
+                }
+                break;
+            case "South East":
+                try {
+                    system.addNeighbor(findNeighbor(galaxy, "Center"));
+                    system.addNeighbor(findNeighbor(galaxy, "South"));
+                    system.addNeighbor(findNeighbor(galaxy, "North East"));
+                } catch(PrintException e) {
+                    e.getMessage();
+                }
+                break;
+
+            case "South West":
+                try {
+                    system.addNeighbor(findNeighbor(galaxy, "Center"));
+                    system.addNeighbor(findNeighbor(galaxy, "South"));
+                    system.addNeighbor(findNeighbor(galaxy, "North West"));
+                } catch(PrintException e) {
+                    e.getMessage();
+                }
+                break;
+        }
     }
 }
