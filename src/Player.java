@@ -1,5 +1,9 @@
 import units.Unit;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -11,12 +15,14 @@ public class Player {
     private String race;
     private String color;
     private List<Unit> ships;
+    private List<Planet> controlledPlanets;
 
     public Player(String name, String race, String color) {
         this.name = name;
         this.race = race;
         this.color = color;
         this.ships = new ArrayList<>();
+        this.controlledPlanets = new ArrayList<>();
     }
 
     public String getName() {
@@ -33,6 +39,14 @@ public class Player {
 
     public List<Unit> getShips() {
         return ships;
+    }
+
+    public List<Planet> getControlledPlanets() {
+        return controlledPlanets;
+    }
+
+    public void addControlledPlanet(Planet o) {
+        controlledPlanets.add(o);
     }
 
     @Override
@@ -60,16 +74,27 @@ public class Player {
         Comparator<Unit> sortByCombatVal = Comparator.comparing(Unit::getCombatValue);
         playerUnits.sort(sortByCombatVal.thenComparing(Unit::getResourceCost));
 
-        /* System.out.println(String.format("%-8s %-15s %-15s %-15s %-15s %s", "Player:", "Unit",
-                "Combat Value", "Resource Cost", "Movement Speed", "Capacity"));
-        System.out.println(String.format("%-24s %-15s %-15s %-15s %s", "         Dreadnought", "5", "2",
-                                        "5", "0")); */
         return playerUnits;
     }
 
     // problem 11
-    public void createPlanetaryControlFile() {
+    public void createPlanetaryControlFile(Galaxy galaxy) throws IOException {
+        PrintWriter writer = new PrintWriter("planetary-control.txt", "UTF-8");
 
+        // for every player in the galaxy, write headliner
+        for(Player e : galaxy.getPlayers()) {
+            writer.println(String.format("%-15s %s (%s)",
+                    e.color + " Player:", e.name, e.race));
+
+            // for every planet the player controls, write planet name
+            for(Planet p : e.controlledPlanets) {
+                writer.println(String.format("%15s %s", "", p.getName()));
+            }
+
+            // add newline once player no longer controls any planets
+            writer.println("\n");
+            writer.close();
+        }
     }
 
     public void setPlanetaryControl(HexaSystem system, Player player) {
@@ -80,6 +105,7 @@ public class Player {
                     otherShipsInSystem.size() == 0) {
                 for(Planet p : system.getSystemPlanets()) {
                     p.setPlayerInControl(player);
+                    player.addControlledPlanet(p);
                 }
             }
         }
