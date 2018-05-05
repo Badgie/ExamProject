@@ -2,14 +2,17 @@ import exceptions.PrintException;
 import units.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
 public class Galaxy {
     public List<HexaSystem> systems;
+    public List<Player> players;
 
     public Galaxy() {
         this.systems = new ArrayList<>();
+        this.players = new ArrayList<>();
     }
 
     public List<HexaSystem> getSystems() {
@@ -21,23 +24,23 @@ public class Galaxy {
         List<Unit> ships;
         for(HexaSystem e : systems) {
             ships = e.getSystemShips();
-            for (Unit u : ships) {
-                resolved.add(u);
-            }
+            resolved.addAll(ships);
         }
         return resolved;
     }
 
     public List<Planet> getPlanets() {
-        List<Planet> resolved = new ArrayList();
+        List<Planet> resolved = new ArrayList<>();
         List<Planet> planets;
         for(HexaSystem e : systems) {
             planets = e.getSystemPlanets();
-            for (Planet u : planets) {
-                resolved.add(u);
-            }
+            resolved.addAll(planets);
         }
         return resolved;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
     }
 
     public void sampleGalaxy() {
@@ -79,6 +82,8 @@ public class Galaxy {
         galaxy.getSystems().get(1).addShip(new CarrierUnit(red));
     }
 
+    // Problem 9
+    // TODO: implement fourth criteria
     public boolean checkIfGalaxyIsLegal(Galaxy galaxy) {
         boolean verdict = false;
         try {
@@ -96,6 +101,7 @@ public class Galaxy {
         return verdict;
     }
 
+    // first criteria
     private boolean checkCenterGalaxyPlanets(Galaxy galaxy) throws PrintException {
             if(getCenterSystemPlanets(galaxy).contains("Mecatol Rex")
                     && getCenterSystemPlanets(galaxy).size() == 1) {
@@ -106,6 +112,7 @@ public class Galaxy {
         return true;
     }
 
+    // second criteria
     private boolean checkForDuplicatePlanets(Galaxy galaxy) throws PrintException {
         if(galaxy.getPlanets().size() == getGalaxyPlanetNames(galaxy).size()) {
         } else {
@@ -114,6 +121,7 @@ public class Galaxy {
         return true;
     }
 
+    // third criteria
     private boolean checkForMoreThanThreePlanets(Galaxy galaxy) throws PrintException {
         for(HexaSystem e : galaxy.getSystems()) {
             if(getSystemPlanetNames(e).size() <= 3) {
@@ -124,15 +132,16 @@ public class Galaxy {
         return true;
     }
 
+    // fourth criteria
     private boolean checkCardinalDirections(Galaxy galaxy) throws PrintException {
         for(HexaSystem e : galaxy.getSystems()) {
             e.setNeighbors(galaxy, e);
         }
-        
 
         return true;
     }
 
+    // helpermethods
     private ArrayList<String> getGalaxyPlanetNames(Galaxy galaxy) {
         ArrayList<String> array = new ArrayList<>();
         for(Planet e : galaxy.getPlanets()) {
@@ -151,7 +160,6 @@ public class Galaxy {
 
     private ArrayList<String> getCenterSystemPlanets(Galaxy galaxy) {
         ArrayList<String> planets = new ArrayList<>();
-
         for(int i = 0; i < galaxy.getSystems().size(); i++) {
             if(galaxy.getSystems().get(i).getCardinal().equals("Center")) {
                 for (Planet e : galaxy.getSystems().get(i).getSystemPlanets()) {
@@ -160,6 +168,14 @@ public class Galaxy {
             }
         }
         return planets;
+    }
+
+    private void checkNeighborValidity(Galaxy galaxy, HexaSystem e) {
+        List<HexaSystem> systems = galaxy.getSystems();
+        int i = galaxy.getSystems().indexOf(e);
+        if(systems.get(i).getCardinal().equals("Center")) {
+            systems.get(i).getNeighbors().size();
+        }
     }
 }
 
