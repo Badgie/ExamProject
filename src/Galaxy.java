@@ -43,15 +43,28 @@ public class Galaxy {
         return players;
     }
 
-    public void sampleGalaxy() {
-        // Generate galaxy
+    public Galaxy generateGalaxy() {
         Galaxy galaxy = new Galaxy();
 
-        // Players
+        // systems
+        galaxy.getSystems().addAll(generateSystems());
+
+        // planets
+
+
+
+        return galaxy;
+    }
+
+    public void sampleGalaxy() {
+        // galaxy
+        Galaxy galaxy = new Galaxy();
+
+        // players
         Player blue = new Player("Crassus", "The Emirates of Hacan", "Blue");
         Player red = new Player("Pompey", "The Federation of Sol", "Red");
 
-        // Systems
+        // systems
         List<HexaSystem> sampleSystems = new ArrayList<>();
         sampleSystems.add(new HexaSystem("Center"));
         sampleSystems.add(new HexaSystem("North"));
@@ -62,7 +75,7 @@ public class Galaxy {
         sampleSystems.add(new HexaSystem("North West"));
         galaxy.systems.addAll(sampleSystems);
 
-        // Add planets
+        // add planets
         galaxy.getSystems().get(0).addPlanet(new Planet("Mecatol Rex", 5));
         galaxy.getSystems().get(1).addPlanet(new Planet("Vega Minor", 1));
         galaxy.getSystems().get(1).addPlanet(new Planet("Vega Major", 3));
@@ -71,12 +84,12 @@ public class Galaxy {
         galaxy.getSystems().get(4).addPlanet(new Planet("Rigel II", 2));
         galaxy.getSystems().get(6).addPlanet(new Planet("Mirage", 4));
 
-        // Add blue ships to system
+        // add blue ships
         galaxy.getSystems().get(0).addShip(new DreadnoughtUnit(blue));
         galaxy.getSystems().get(0).addShip(new DreadnoughtUnit(blue));
         galaxy.getSystems().get(0).addShip(new DestroyerUnit(blue));
 
-        // Add red ships to system
+        // add red ships
         galaxy.getSystems().get(1).addShip(new CruiserUnit(red));
         galaxy.getSystems().get(1).addShip(new CruiserUnit(red));
         galaxy.getSystems().get(1).addShip(new CarrierUnit(red));
@@ -175,6 +188,30 @@ public class Galaxy {
         int i = galaxy.getSystems().indexOf(e);
         if(systems.get(i).getCardinal().equals("Center")) {
             systems.get(i).getNeighbors().size();
+        }
+    }
+
+    // helpermethods
+    // only run in generateGalaxy
+    private List<HexaSystem> generateSystems() {
+        List<HexaSystem> systems = new ArrayList<>();
+        String[] cardinals = {"Center", "North", "North East", "North West", "South",
+                "South East", "South West"};
+
+        // for each cardinal in cardinals[], add new system to list
+        for (String e : cardinals) {
+            systems.add(new HexaSystem(e));
+        }
+
+        return systems;
+    }
+
+    private void generatePlanets(Galaxy galaxy) {
+
+        for(HexaSystem e : galaxy.getSystems()) {
+            if(e.getCardinal().equals("Center")) {
+                e.addPlanet(new Planet("sdkjh", 9));
+            }
         }
     }
 }
