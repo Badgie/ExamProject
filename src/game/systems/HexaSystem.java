@@ -1,5 +1,10 @@
-import exceptions.PrintException;
-import units.Unit;
+package game.systems;
+
+import game.exceptions.PrintException;
+import game.galaxy.Galaxy;
+import game.planets.Planet;
+import game.player.Player;
+import game.units.Unit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,19 +57,9 @@ public class HexaSystem {
         return planets;
     }
 
-    private List<Unit> getPlayerShipsInSystem(Player player) {
-        List<Unit> playerShips = new ArrayList<>();
-
-        for(Unit e : this.getSystemShips()) {
-            if(e.getOwner().equals(player))
-                playerShips.add(e);
-        }
-        return playerShips;
-    }
-
     @Override
     public String toString() {
-        return "HexaSystem{" + "ships=" + ships + '}';
+        return "HexaSystem{" + "cardinal='" + cardinal + '\'' + ", neighbors=" + neighbors + ", planets=" + planets + ", ships=" + ships + '}';
     }
 
     private HexaSystem findNeighbor(Galaxy galaxy, String cardinality) throws PrintException {
@@ -156,45 +151,84 @@ public class HexaSystem {
         }
     }
 
-    private boolean checkIfTwoPlayersAreInTheSameSystem(HexaSystem system) {
-        if()
+
+
+    public boolean checkIfMoreThanTwoPlayersExistInSystem() {
+        if(getPlayersInSystem().size() > 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    private void doTheFightyThing(Player playerOne, Player playerTwo) {
-        do {
-            playerTwo.getShips().removeAll(calculateHitsDoneByPlayerOne(playerOne, playerTwo));
-            playerOne.getShips().removeAll(calculateHitsDoneByPlayerTwo(playerOne, playerTwo));
-        } while(playerOne.getShips().size() != 0 ||
-                playerTwo.getShips().size() != 0);
+    public void concludeCombat(Player playerOne, Player playerTwo) {
+        while(getPlayerShipsInSystem(playerOne).size() != 0 ||
+                getPlayerShipsInSystem(playerTwo).size() != 0) {
+            List<Unit> hitsByPlayerOne = calculateHitsDoneByPlayerOne(playerOne, playerTwo);
+            List<Unit> hitsByPlayerTwo = calculateHitsDoneByPlayerTwo(playerOne, playerTwo);
+            playerTwo.getShips().removeAll(hitsByPlayerOne);
+            playerOne.getShips().removeAll(hitsByPlayerTwo);
+        }
     }
 
-    private List<Unit> calculateHitsDoneByPlayerOne(Player playerOne, Player playerTwo, HexaSystem system) {
+    public List<Unit> calculateHitsDoneByPlayerOne(Player playerOne, Player playerTwo) {
         Random rand = new Random();
         List<Unit> playerTwoCasualties = new ArrayList<>();
+        int decrement = 1;
 
         for(Unit e : getPlayerShipsInSystem(playerOne)) {
             int diceRoll = rand.nextInt(10) + 1;
             if (diceRoll >= e.getCombatValue()) {
-                playerTwoCasualties.add(getPlayerWorstShipInSystem(playerTwo));
+                playerTwoCasualties.add(getPlayerWorstShipInSystem(playerTwo, decrement));
+                decrement++;
             }
         }
         return playerTwoCasualties;
     }
 
-    private List<Unit> calculateHitsDoneByPlayerTwo(Player playerOne, Player playerTwo) {
+    public List<Unit> calculateHitsDoneByPlayerTwo(Player playerOne, Player playerTwo) {
         Random rand = new Random();
         List<Unit> playerOneCasualties = new ArrayList<>();
+        int decrement = 2;
 
         for(Unit e : getPlayerShipsInSystem(playerTwo)) {
             int diceRoll = rand.nextInt(10) + 1;
             if (diceRoll >= e.getCombatValue()) {
-                playerOneCasualties.add(getPlayerWorstShipInSystem(playerOne));
+                playerOneCasualties.add(getPlayerWorstShipInSystem(playerOne, decrement));
+                decrement++;
             }
         }
         return playerOneCasualties;
     }
 
-    private Unit getPlayerWorstShipInSystem(Player player) {
-        return getPlayerShipsInSystem(player).get(getPlayerShipsInSystem(player).size() - 1);
+    public Unit getPlayerWorstShipInSystem(Player player, int decrement) {
+        List<Unit> playerShips = getPlayerShipsInSystem(player);
+        int findIndex = 1;
+
+        if(getPlayerShipsInSystem(player).size() > 1) {
+            return playerShips.get(playerShips.size() - decrement);
+        } else {
+            return playerShips.get(playerShips.size() - findIndex);
+        }
+    }
+
+    public List<Unit> getPlayerShipsInSystem(Player player) {
+        List<Unit> playerShips = new ArrayList<>();
+
+        for(Unit e : getSystemShips()) {
+            if(e.getOwner().equals(player))
+                playerShips.add(e);
+        }
+        return playerShips;
+    }
+
+    public List<Player> getPlayersInSystem() {
+        List<Player> playersInSystem = new ArrayList<>();
+        for(Unit e : getSystemShips()) {
+            if(!playersInSystem.contains(e.getOwner())) {
+                playersInSystem.add(e.getOwner());
+            }
+        }
+        return playersInSystem;
     }
 }
