@@ -1,7 +1,10 @@
-import units.Unit;
+package game.player;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import game.galaxy.Galaxy;
+import game.planets.Planet;
+import game.systems.HexaSystem;
+import game.units.Unit;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;

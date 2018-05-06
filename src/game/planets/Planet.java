@@ -1,7 +1,7 @@
-import units.Unit;
+package game.planets;
 
-import java.util.ArrayList;
-import java.util.List;
+import game.player.Player;
+
 import java.util.Random;
 
 public class Planet {
@@ -26,6 +26,11 @@ public class Planet {
 
     public Player getPlayerInControl() {
         return playerInControl;
+    }
+
+    @Override
+    public String toString() {
+        return "Planet{" + "name='" + name + '\'' + ", resourceProduction=" + resourceProduction + ", playerInControl=" + playerInControl + '}';
     }
 
     public void setPlayerInControl(Player playerInControl) {

@@ -1,14 +1,16 @@
-package units;
+package game.units;
+
+import game.player.Player;
 
 public class DreadnoughtUnit implements Unit {
     int resourceCost;
     int combatValue;
     int movementSpeed;
     int capacity;
-    String unitType;
-    Object owner;
+    private String unitType;
+    Player owner;
 
-    public DreadnoughtUnit(Object owner) {
+    public DreadnoughtUnit(Player owner) {
         this.resourceCost = 5;
         this.combatValue = 5;
         this.movementSpeed = 1;
@@ -43,7 +45,12 @@ public class DreadnoughtUnit implements Unit {
     }
 
     @Override
-    public Object getOwner() {
+    public Player getOwner() {
         return this.owner;
+    }
+
+    @Override
+    public String toString() {
+        return "DreadnoughtUnit{" + "resourceCost=" + resourceCost + ", combatValue=" + combatValue + ", movementSpeed=" + movementSpeed + ", capacity=" + capacity + ", unitType='" + unitType + '\'' + ", owner=" + owner + '}';
     }
 }

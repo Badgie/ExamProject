@@ -1,8 +1,11 @@
+import game.planets.Planet;
+import game.player.Player;
+import game.systems.HexaSystem;
 import org.junit.jupiter.api.Test;
-import units.CarrierUnit;
-import units.CruiserUnit;
-import units.DestroyerUnit;
-import units.DreadnoughtUnit;
+import game.units.CarrierUnit;
+import game.units.CruiserUnit;
+import game.units.DestroyerUnit;
+import game.units.DreadnoughtUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 

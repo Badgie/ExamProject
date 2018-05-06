@@ -1,4 +1,6 @@
-package units;
+package game.units;
+
+import game.player.Player;
 
 public interface Unit {
 
@@ -12,5 +14,5 @@ public interface Unit {
 
     String getUnitType();
 
-    Object getOwner();
+    Player getOwner();
 }

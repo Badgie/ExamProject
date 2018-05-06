@@ -1,14 +1,16 @@
-package units;
+package game.units;
+
+import game.player.Player;
 
 public class CarrierUnit implements Unit {
     int resourceCost;
     int combatValue;
     int movementSpeed;
     int capacity;
-    String unitType;
-    Object owner;
+    private String unitType;
+    Player owner;
 
-    public CarrierUnit(Object owner) {
+    public CarrierUnit(Player owner) {
         this.resourceCost = 3;
         this.combatValue = 9;
         this.movementSpeed = 1;
@@ -43,7 +45,12 @@ public class CarrierUnit implements Unit {
     }
 
     @Override
-    public Object getOwner() {
+    public Player getOwner() {
         return this.owner;
+    }
+
+    @Override
+    public String toString() {
+        return "CarrierUnit{" + "resourceCost=" + resourceCost + ", combatValue=" + combatValue + ", movementSpeed=" + movementSpeed + ", capacity=" + capacity + ", unitType='" + unitType + '\'' + ", owner=" + owner + '}';
     }
 }
