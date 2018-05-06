@@ -37,7 +37,6 @@ Arretze
 Kamdorn
 Jol
 Nar
-[0.0.0]
 Arc Prime
 Wren Terra
 Moll Primus

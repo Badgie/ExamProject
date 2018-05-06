@@ -2,16 +2,17 @@ import units.Unit;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Planet {
-
+    Random rand = new Random();
     private String name;
     private int resourceProduction;
-    Player playerInControl;
+    private Player playerInControl;
 
-    public Planet(String name, int resourceProduction) {
+    public Planet(String name) {
         this.name = name;
-        this.resourceProduction = resourceProduction;
+        this.resourceProduction = rand.nextInt(7);
         this.playerInControl = null;
     }
 

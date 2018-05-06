@@ -1,10 +1,8 @@
 import exceptions.PrintException;
 import units.*;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 public class Galaxy {
     public List<HexaSystem> systems;
@@ -50,6 +48,12 @@ public class Galaxy {
         galaxy.getSystems().addAll(generateSystems());
 
         // planets
+        try {
+            generatePlanets(galaxy);
+        } catch(IOException e) {
+            e.getMessage();
+        }
+
 
 
 
@@ -76,13 +80,13 @@ public class Galaxy {
         galaxy.systems.addAll(sampleSystems);
 
         // add planets
-        galaxy.getSystems().get(0).addPlanet(new Planet("Mecatol Rex", 5));
-        galaxy.getSystems().get(1).addPlanet(new Planet("Vega Minor", 1));
-        galaxy.getSystems().get(1).addPlanet(new Planet("Vega Major", 3));
-        galaxy.getSystems().get(3).addPlanet(new Planet("Industrex", 6));
-        galaxy.getSystems().get(4).addPlanet(new Planet("Rigel I", 3));
-        galaxy.getSystems().get(4).addPlanet(new Planet("Rigel II", 2));
-        galaxy.getSystems().get(6).addPlanet(new Planet("Mirage", 4));
+        galaxy.getSystems().get(0).addPlanet(new Planet("Mecatol Rex"));
+        galaxy.getSystems().get(1).addPlanet(new Planet("Vega Minor"));
+        galaxy.getSystems().get(1).addPlanet(new Planet("Vega Major"));
+        galaxy.getSystems().get(3).addPlanet(new Planet("Industrex"));
+        galaxy.getSystems().get(4).addPlanet(new Planet("Rigel I"));
+        galaxy.getSystems().get(4).addPlanet(new Planet("Rigel II"));
+        galaxy.getSystems().get(6).addPlanet(new Planet("Mirage"));
 
         // add blue ships
         galaxy.getSystems().get(0).addShip(new DreadnoughtUnit(blue));
@@ -205,14 +209,40 @@ public class Galaxy {
 
         return systems;
     }
-
-    private void generatePlanets(Galaxy galaxy) {
+    // only run in generateGalaxy
+    private void generatePlanets(Galaxy galaxy) throws IOException {
+        Random rand = new Random();
 
         for(HexaSystem e : galaxy.getSystems()) {
             if(e.getCardinal().equals("Center")) {
-                e.addPlanet(new Planet("sdkjh", 9));
+                e.addPlanet(new Planet("Mecatol Rex"));
+            } else {
+                for(int i = 0; i < rand.nextInt(3); i++) {
+                    e.addPlanet(new Planet(getPlanetNamesFromFile().get(rand.nextInt(57))));
+                }
             }
         }
+    }
+
+    public void generatePlayers(Galaxy galaxy) {
+
+    }
+
+
+
+    private List<String> getPlanetNamesFromFile() {
+        List<String> planetNames = new ArrayList<>();
+        try {
+            Scanner scan = new Scanner(new File("data/planet-names.txt"));
+            while(scan.hasNextLine()) {
+                planetNames.add(scan.nextLine());
+            }
+
+        } catch(FileNotFoundException e) {
+            e.getMessage();
+        }
+
+        return planetNames;
     }
 }
 

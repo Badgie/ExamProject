@@ -66,7 +66,7 @@ class HexaSystemTest {
     @Test
     void addPlanet() {
         HexaSystem hSystem = new HexaSystem("North");
-        Planet planet = new Planet("Earth dimension C-137", 7);
+        Planet planet = new Planet("Earth dimension C-137");
 
         hSystem.addPlanet(planet);
 
