@@ -1,7 +1,16 @@
-import exceptions.PrintException;
-import units.*;
+package game.galaxy;
+
+import game.exceptions.PrintException;
+import game.planets.Planet;
+import game.player.Player;
+import game.systems.HexaSystem;
+import game.units.*;
 
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class Galaxy {
@@ -15,6 +24,11 @@ public class Galaxy {
 
     public List<HexaSystem> getSystems() {
         return systems;
+    }
+
+    @Override
+    public String toString() {
+        return "Galaxy{" + "systems=" + systems + ", players=" + players + '}';
     }
 
     public List<Unit> getShips() {
@@ -42,19 +56,18 @@ public class Galaxy {
     }
 
     // problem 12
-    public Galaxy generateGalaxy() {
-        Galaxy galaxy = new Galaxy();
+    public Galaxy constructGalaxy() {
         try {
-            generateSystems(galaxy);
-            generatePlanets(galaxy);
-            generatePlayers(galaxy);
-            checkIfGalaxyIsLegal(galaxy);
+            generateSystems(this);
+            generatePlanets(this);
+            generatePlayers(this);
+            checkIfGalaxyIsLegal(this);
 
         } catch(PrintException e) {
             e.getMessage();
         }
 
-        return galaxy;
+        return this;
     }
 
     public void sampleGalaxy() {
@@ -208,14 +221,19 @@ public class Galaxy {
     private void generatePlanets(Galaxy galaxy) {
         Random rand = new Random();
 
-        for(HexaSystem e : galaxy.getSystems()) {
-            if(e.getCardinal().equals("Center")) {
-                e.addPlanet(new Planet("Mecatol Rex"));
-            } else {
-                for(int i = 0; i < rand.nextInt(3); i++) {
-                    e.addPlanet(new Planet(getPlanetNamesFromFile().get(rand.nextInt(57))));
+        try {
+            List<String> planetNames = new ArrayList<>(getPlanetNamesFromFile());
+            for (HexaSystem e : galaxy.getSystems()) {
+                if (e.getCardinal().equals("Center")) {
+                    e.addPlanet(new Planet("Mecatol Rex"));
+                } else {
+                    for (int i = 0; i < rand.nextInt(3); i++) {
+                        e.addPlanet(new Planet(planetNames.get(rand.nextInt(57))));
+                    }
                 }
             }
+        } catch(IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -223,15 +241,24 @@ public class Galaxy {
     private void generatePlayers(Galaxy galaxy) {
         String[] colors = {"Green", "Red", "Yellow", "Purple", "Black", "Blue"};
         Random rand = new Random();
-        for(int i = 0; i < rand.nextInt(5) + 2; i++) {
-            galaxy.getPlayers().add(new Player(getPlayerNamesFromFile().get(rand.nextInt(29)),
-                    getPlayerRacesFromFile().get(rand.nextInt(17)),
-                    colors[rand.nextInt(6)]));
+
+        try {
+            List<String> playerNames = new ArrayList<>(getPlayerNamesFromFile());
+            List<String> playerRaces = new ArrayList<>(getPlayerRacesFromFile());
+
+            for(int i = 0; i < rand.nextInt(5) + 2; i++) {
+                galaxy.getPlayers().add(new Player(playerNames.get(rand.nextInt(playerNames.size())),
+                        playerRaces.get(rand.nextInt(playerRaces.size())),
+                        colors[rand.nextInt(colors.length)]));
+            }
+            for(Player e : galaxy.getPlayers()) {
+                generateShips(e);
+                addPlayerShipsToRandomSystems(e, galaxy);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        for(Player e : galaxy.getPlayers()) {
-            generateShips(e);
-            addPlayerShipsToRandomSystems(e, galaxy);
-        }
+
     }
 
     // only run in generatePlayers
@@ -261,53 +288,67 @@ public class Galaxy {
 
     private void addPlayerShipsToRandomSystems(Player player, Galaxy galaxy) {
         Random rand = new Random();
+        int numberOfSystems = 7;
         for(Unit e : player.getShips()) {
-            int randomNumber = rand.nextInt(7);
-            galaxy.getSystems().get(randomNumber).addShip(e);
+            int randomNumber = rand.nextInt(numberOfSystems);
+            if(galaxy.getSystems().get(randomNumber).getPlayersInSystem().size() < 2) {
+                galaxy.getSystems().get(randomNumber).addShip(e);
+            }
         }
     }
 
-    private List<String> getPlanetNamesFromFile() {
+    private List<String> getPlanetNamesFromFile() throws IOException {
         List<String> planetNames = new ArrayList<>();
-        try {
-            Scanner scan = new Scanner(new File("data/planet-names.txt"));
-            while(scan.hasNextLine()) {
-                planetNames.add(scan.nextLine());
-            }
-            scan.close();
-        } catch(FileNotFoundException e) {
-            e.getMessage();
-        }
+        Charset charset = Charset.forName("UTF-8");
+        Path planetNamesFile = Paths.get("src/game/galaxy", "planet-names.txt");
 
+        try(BufferedReader planetNamesReader = Files.newBufferedReader(planetNamesFile, charset)) {
+            String lineFromFile;
+            while((lineFromFile = planetNamesReader.readLine()) != null) {
+                planetNames.add(lineFromFile);
+            }
+        }
         return planetNames;
     }
 
-    private List<String> getPlayerRacesFromFile() {
+    private List<String> getPlayerRacesFromFile() throws IOException {
         List<String> raceNames = new ArrayList<>();
-        try {
-            Scanner scan = new Scanner(new File("data/player-races.txt"));
-            while(scan.hasNextLine()) {
-                raceNames.add(scan.nextLine());
+        Charset charset = Charset.forName("UTF-8");
+        Path playerRacesFile = Paths.get("src/game/galaxy", "player-races.txt");
+
+        try(BufferedReader playerRacesReader = Files.newBufferedReader(playerRacesFile, charset)) {
+            String lineFromFile;
+            while((lineFromFile = playerRacesReader.readLine()) != null) {
+                raceNames.add(lineFromFile);
             }
-            scan.close();
-        } catch(FileNotFoundException e) {
-            e.getMessage();
         }
         return raceNames;
     }
 
-    private List<String> getPlayerNamesFromFile() {
+    private List<String> getPlayerNamesFromFile() throws IOException {
         List<String> playerNames = new ArrayList<>();
-        try {
-            Scanner scan = new Scanner(new File("data/player-names.txt"));
-            while(scan.hasNextLine()) {
-                playerNames.add(scan.nextLine());
+        Charset charset = Charset.forName("UTF-8");
+        Path playerNamesFile = Paths.get("src/game/galaxy", "player-names.txt");
+
+        try(BufferedReader playerNamesReader = Files.newBufferedReader(playerNamesFile, charset)) {
+            String lineFromFile;
+            while((lineFromFile = playerNamesReader.readLine()) != null) {
+                playerNames.add(lineFromFile);
             }
-            scan.close();
-        } catch(FileNotFoundException e) {
-            e.getMessage();
         }
         return playerNames;
+    }
+
+    public void checkIfCombatIsNecessaryInSystems() {
+        int indexOfPlayerOne = 0;
+        int indexOfPlayerTwo = 1;
+
+        for(HexaSystem e : systems) {
+            if(e.getPlayersInSystem().size() > 1) {
+                e.concludeCombat(e.getPlayersInSystem().get(indexOfPlayerOne),
+                        e.getPlayersInSystem().get(indexOfPlayerTwo));
+            }
+        }
     }
 }
 
