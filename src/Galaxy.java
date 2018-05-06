@@ -41,21 +41,25 @@ public class Galaxy {
         return players;
     }
 
+    // problem 12
     public Galaxy generateGalaxy() {
         Galaxy galaxy = new Galaxy();
-
-        // systems
-        galaxy.getSystems().addAll(generateSystems());
-
-        // planets
         try {
-            generatePlanets(galaxy);
-        } catch(IOException e) {
+            galaxy.getSystems().addAll(generateSystems());
+
+            try {
+                generatePlanets(galaxy);
+            } catch (IOException e) {
+                e.getMessage();
+            }
+
+            generatePlayers(galaxy);
+
+            checkIfGalaxyIsLegal(galaxy);
+
+        } catch(PrintException e) {
             e.getMessage();
         }
-
-
-
 
         return galaxy;
     }
@@ -101,8 +105,7 @@ public class Galaxy {
 
     // Problem 9
     // TODO: implement fourth criteria
-    public boolean checkIfGalaxyIsLegal(Galaxy galaxy) {
-        boolean verdict = false;
+    private boolean checkIfGalaxyIsLegal(Galaxy galaxy) throws PrintException {
         try {
             boolean condOne = checkCenterGalaxyPlanets(galaxy);
             boolean condTwo = checkForDuplicatePlanets(galaxy);
@@ -110,12 +113,14 @@ public class Galaxy {
             boolean condFour = checkCardinalDirections(galaxy);
 
             if (condOne && condTwo && condThree && condFour) {
-                verdict = true;
+
+            } else {
+                throw new PrintException("ERROR: Galaxy is not legal.");
             }
         } catch(PrintException e) {
             e.getMessage();
         }
-        return verdict;
+        return true;
     }
 
     // first criteria
@@ -224,11 +229,44 @@ public class Galaxy {
         }
     }
 
-    public void generatePlayers(Galaxy galaxy) {
-
+    // only run in generateGalaxy
+    private void generatePlayers(Galaxy galaxy) {
+        String[] colors = {"Green", "Red", "Yellow", "Purple", "Black", "Blue"};
+        Random rand = new Random();
+        for(int i = 0; i < rand.nextInt(5) + 2; i++) {
+            galaxy.getPlayers().add(new Player(getPlayerNamesFromFile().get(rand.nextInt(29)),
+                    getPlayerRacesFromFile().get(rand.nextInt(17)),
+                    colors[rand.nextInt(6)]));
+        }
+        for(Player e : galaxy.getPlayers()) {
+            generateShips(e);
+        }
     }
 
+    // only run in generatePlayers
+    private void generateShips(Player player) {
+        int maxShips = 7;
+        Random rand = new Random();
 
+        for(int i = 0; i < maxShips; i++) {
+            int randomShip = rand.nextInt(4);
+
+            switch(randomShip) {
+                case 0:
+                    player.getShips().add(new DreadnoughtUnit(player));
+                    break;
+                case 1:
+                    player.getShips().add(new DestroyerUnit(player));
+                    break;
+                case 2:
+                    player.getShips().add(new CruiserUnit(player));
+                    break;
+                case 3:
+                    player.getShips().add(new CarrierUnit(player));
+                    break;
+            }
+        }
+    }
 
     private List<String> getPlanetNamesFromFile() {
         List<String> planetNames = new ArrayList<>();
@@ -237,12 +275,40 @@ public class Galaxy {
             while(scan.hasNextLine()) {
                 planetNames.add(scan.nextLine());
             }
-
+            scan.close();
         } catch(FileNotFoundException e) {
             e.getMessage();
         }
 
         return planetNames;
+    }
+
+    private List<String> getPlayerRacesFromFile() {
+        List<String> raceNames = new ArrayList<>();
+        try {
+            Scanner scan = new Scanner(new File("data/player-races.txt"));
+            while(scan.hasNextLine()) {
+                raceNames.add(scan.nextLine());
+            }
+            scan.close();
+        } catch(FileNotFoundException e) {
+            e.getMessage();
+        }
+        return raceNames;
+    }
+
+    private List<String> getPlayerNamesFromFile() {
+        List<String> playerNames = new ArrayList<>();
+        try {
+            Scanner scan = new Scanner(new File("data/player-names.txt"));
+            while(scan.hasNextLine()) {
+                playerNames.add(scan.nextLine());
+            }
+            scan.close();
+        } catch(FileNotFoundException e) {
+            e.getMessage();
+        }
+        return playerNames;
     }
 }
 
