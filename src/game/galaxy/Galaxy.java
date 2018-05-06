@@ -45,16 +45,9 @@ public class Galaxy {
     public Galaxy generateGalaxy() {
         Galaxy galaxy = new Galaxy();
         try {
-            galaxy.getSystems().addAll(generateSystems());
-
-            try {
-                generatePlanets(galaxy);
-            } catch (IOException e) {
-                e.getMessage();
-            }
-
+            generateSystems(galaxy);
+            generatePlanets(galaxy);
             generatePlayers(galaxy);
-
             checkIfGalaxyIsLegal(galaxy);
 
         } catch(PrintException e) {
@@ -202,20 +195,17 @@ public class Galaxy {
 
     // helpermethods
     // only run in generateGalaxy
-    private List<HexaSystem> generateSystems() {
-        List<HexaSystem> systems = new ArrayList<>();
+    private void generateSystems(Galaxy galaxy) {
         String[] cardinals = {"Center", "North", "North East", "North West", "South",
                 "South East", "South West"};
 
         // for each cardinal in cardinals[], add new system to list
         for (String e : cardinals) {
-            systems.add(new HexaSystem(e));
+            galaxy.getSystems().add(new HexaSystem(e));
         }
-
-        return systems;
     }
     // only run in generateGalaxy
-    private void generatePlanets(Galaxy galaxy) throws IOException {
+    private void generatePlanets(Galaxy galaxy) {
         Random rand = new Random();
 
         for(HexaSystem e : galaxy.getSystems()) {
@@ -240,6 +230,7 @@ public class Galaxy {
         }
         for(Player e : galaxy.getPlayers()) {
             generateShips(e);
+            addPlayerShipsToRandomSystems(e, galaxy);
         }
     }
 
@@ -265,6 +256,14 @@ public class Galaxy {
                     player.getShips().add(new CarrierUnit(player));
                     break;
             }
+        }
+    }
+
+    private void addPlayerShipsToRandomSystems(Player player, Galaxy galaxy) {
+        Random rand = new Random();
+        for(Unit e : player.getShips()) {
+            int randomNumber = rand.nextInt(7);
+            galaxy.getSystems().get(randomNumber).addShip(e);
         }
     }
 
