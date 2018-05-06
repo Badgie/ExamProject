@@ -2,29 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc01e971-dd80-42bb-b3b2-d7f65bbf43f3" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/game/galaxy/planet-names.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Test/GalaxyTest.java" afterPath="$PROJECT_DIR$/Test/GalaxyTest.java" />
       <change beforePath="$PROJECT_DIR$/Test/HexaSystemTest.java" afterPath="$PROJECT_DIR$/Test/HexaSystemTest.java" />
       <change beforePath="$PROJECT_DIR$/Test/PlanetTest.java" afterPath="$PROJECT_DIR$/Test/PlanetTest.java" />
       <change beforePath="$PROJECT_DIR$/Test/PlayerTest.java" afterPath="$PROJECT_DIR$/Test/PlayerTest.java" />
-      <change beforePath="$PROJECT_DIR$/Test/units/CarrierUnitTest.java" afterPath="$PROJECT_DIR$/Test/game/units/CarrierUnitTest.java" />
-      <change beforePath="$PROJECT_DIR$/Test/units/CruiserUnitTest.java" afterPath="$PROJECT_DIR$/Test/game/units/CruiserUnitTest.java" />
-      <change beforePath="$PROJECT_DIR$/Test/units/DestroyerUnitTest.java" afterPath="$PROJECT_DIR$/Test/game/units/DestroyerUnitTest.java" />
-      <change beforePath="$PROJECT_DIR$/Test/units/DreadnoughtUnitTest.java" afterPath="$PROJECT_DIR$/Test/game/units/DreadnoughtUnitTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/Galaxy.java" afterPath="$PROJECT_DIR$/src/game/galaxy/Galaxy.java" />
-      <change beforePath="$PROJECT_DIR$/src/HexaSystem.java" afterPath="$PROJECT_DIR$/src/game/systems/HexaSystem.java" />
+      <change beforePath="$PROJECT_DIR$/Test/game/units/CarrierUnitTest.java" afterPath="$PROJECT_DIR$/Test/game/units/CarrierUnitTest.java" />
+      <change beforePath="$PROJECT_DIR$/Test/game/units/CruiserUnitTest.java" afterPath="$PROJECT_DIR$/Test/game/units/CruiserUnitTest.java" />
+      <change beforePath="$PROJECT_DIR$/Test/game/units/DestroyerUnitTest.java" afterPath="$PROJECT_DIR$/Test/game/units/DestroyerUnitTest.java" />
+      <change beforePath="$PROJECT_DIR$/Test/game/units/DreadnoughtUnitTest.java" afterPath="$PROJECT_DIR$/Test/game/units/DreadnoughtUnitTest.java" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/Planet.java" afterPath="$PROJECT_DIR$/src/game/planets/Planet.java" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" afterPath="$PROJECT_DIR$/src/game/player/Player.java" />
-      <change beforePath="$PROJECT_DIR$/src/data/player-names.txt" afterPath="$PROJECT_DIR$/src/game/galaxy/player-names.txt" />
-      <change beforePath="$PROJECT_DIR$/src/data/player-races.txt" afterPath="$PROJECT_DIR$/src/game/galaxy/player-races.txt" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/PrintException.java" afterPath="$PROJECT_DIR$/src/game/exceptions/PrintException.java" />
-      <change beforePath="$PROJECT_DIR$/src/units/CarrierUnit.java" afterPath="$PROJECT_DIR$/src/game/units/CarrierUnit.java" />
-      <change beforePath="$PROJECT_DIR$/src/units/CruiserUnit.java" afterPath="$PROJECT_DIR$/src/game/units/CruiserUnit.java" />
-      <change beforePath="$PROJECT_DIR$/src/units/DestroyerUnit.java" afterPath="$PROJECT_DIR$/src/game/units/DestroyerUnit.java" />
-      <change beforePath="$PROJECT_DIR$/src/units/DreadnoughtUnit.java" afterPath="$PROJECT_DIR$/src/game/units/DreadnoughtUnit.java" />
-      <change beforePath="$PROJECT_DIR$/src/units/Unit.java" afterPath="$PROJECT_DIR$/src/game/units/Unit.java" />
+      <change beforePath="$PROJECT_DIR$/src/game/exceptions/PrintException.java" afterPath="$PROJECT_DIR$/src/game/exceptions/PrintException.java" />
+      <change beforePath="$PROJECT_DIR$/src/game/galaxy/Galaxy.java" afterPath="$PROJECT_DIR$/src/game/galaxy/Galaxy.java" />
+      <change beforePath="$PROJECT_DIR$/src/game/galaxy/player-names.txt" afterPath="$PROJECT_DIR$/src/game/galaxy/player-names.txt" />
+      <change beforePath="$PROJECT_DIR$/src/game/planets/Planet.java" afterPath="$PROJECT_DIR$/src/game/planets/Planet.java" />
+      <change beforePath="$PROJECT_DIR$/src/game/player/Player.java" afterPath="$PROJECT_DIR$/src/game/player/Player.java" />
+      <change beforePath="$PROJECT_DIR$/src/game/systems/HexaSystem.java" afterPath="$PROJECT_DIR$/src/game/systems/HexaSystem.java" />
+      <change beforePath="$PROJECT_DIR$/src/game/units/CarrierUnit.java" afterPath="$PROJECT_DIR$/src/game/units/CarrierUnit.java" />
+      <change beforePath="$PROJECT_DIR$/src/game/units/CruiserUnit.java" afterPath="$PROJECT_DIR$/src/game/units/CruiserUnit.java" />
+      <change beforePath="$PROJECT_DIR$/src/game/units/DestroyerUnit.java" afterPath="$PROJECT_DIR$/src/game/units/DestroyerUnit.java" />
+      <change beforePath="$PROJECT_DIR$/src/game/units/DreadnoughtUnit.java" afterPath="$PROJECT_DIR$/src/game/units/DreadnoughtUnit.java" />
+      <change beforePath="$PROJECT_DIR$/src/game/units/Unit.java" afterPath="$PROJECT_DIR$/src/game/units/Unit.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,14 +44,14 @@
     </SUITE>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.9">
+    <splitter split-orientation="horizontal" split-proportion="0.4838256">
       <split-first>
         <leaf>
-          <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="656">
-                  <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+                <state relative-caret-position="153">
+                  <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -63,7 +62,7 @@
           <file leaf-file-name="Planet.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/game/planets/Planet.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
+                <state relative-caret-position="350">
                   <caret line="31" column="18" lean-forward="false" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -76,7 +75,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HexaSystem.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="HexaSystem.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/game/systems/HexaSystem.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="453">
@@ -135,8 +134,8 @@
           <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/game/player/Player.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-567">
-                  <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+                <state relative-caret-position="282">
+                  <caret line="93" column="32" lean-forward="false" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#769#770#0" expanded="true" />
@@ -166,7 +165,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GalaxyTest.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="GalaxyTest.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Test/GalaxyTest.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="306">
@@ -186,11 +185,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PlanetTest.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="PlanetTest.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Test/PlanetTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="11" column="93" lean-forward="false" selection-start-line="11" selection-start-column="93" selection-end-line="11" selection-end-column="93" />
+                <state relative-caret-position="119">
+                  <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
                   <folding />
                 </state>
               </provider>
@@ -245,7 +244,6 @@
         <option value="$PROJECT_DIR$/Test/HexaSystemTest.java" />
         <option value="$PROJECT_DIR$/src/Planet.java" />
         <option value="$PROJECT_DIR$/src/data/planet-names.txt" />
-        <option value="$PROJECT_DIR$/Test/PlanetTest.java" />
         <option value="$PROJECT_DIR$/Test/GalaxyTest.java" />
         <option value="$PROJECT_DIR$/src/data/player-races.txt" />
         <option value="$PROJECT_DIR$/src/data/player-names.txt" />
@@ -254,14 +252,12 @@
         <option value="$PROJECT_DIR$/src/units/CarrierUnit.java" />
         <option value="$PROJECT_DIR$/src/HexaSystem.java" />
         <option value="$PROJECT_DIR$/src/game/Galaxy/Galaxy.java" />
-        <option value="$PROJECT_DIR$/src/game/player/Player.java" />
         <option value="$PROJECT_DIR$/src/game/units/Unit.java" />
         <option value="$PROJECT_DIR$/Test/game/units/DreadnoughtUnitTest.java" />
         <option value="$PROJECT_DIR$/Test/game/units/DestroyerUnitTest.java" />
         <option value="$PROJECT_DIR$/Test/game/units/CruiserUnitTest.java" />
         <option value="$PROJECT_DIR$/Test/game/units/CarrierUnitTest.java" />
         <option value="$PROJECT_DIR$/src/game/galaxy/player-names.txt" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/game/planets/Planet.java" />
         <option value="$PROJECT_DIR$/src/game/galaxy/Galaxy.java" />
         <option value="$PROJECT_DIR$/src/game/units/DreadnoughtUnit.java" />
@@ -269,6 +265,9 @@
         <option value="$PROJECT_DIR$/src/game/units/CruiserUnit.java" />
         <option value="$PROJECT_DIR$/src/game/units/CarrierUnit.java" />
         <option value="$PROJECT_DIR$/src/game/systems/HexaSystem.java" />
+        <option value="$PROJECT_DIR$/src/game/player/Player.java" />
+        <option value="$PROJECT_DIR$/Test/PlanetTest.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -957,14 +956,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test/PlanetTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="93" lean-forward="false" selection-start-line="11" selection-start-column="93" selection-end-line="11" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Test/GalaxyTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1127,48 +1118,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-567">
-          <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#769#770#0" expanded="true" />
-            <element signature="e#797#798#0" expanded="true" />
-            <element signature="e#833#834#0" expanded="true" />
-            <element signature="e#861#862#0" expanded="true" />
-            <element signature="e#911#912#0" expanded="true" />
-            <element signature="e#951#952#0" expanded="true" />
-            <element signature="e#1000#1001#0" expanded="true" />
-            <element signature="e#1040#1041#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/planets/Planet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="31" column="18" lean-forward="false" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#563#564#0" expanded="true" />
-            <element signature="e#601#602#0" expanded="true" />
-            <element signature="e#860#861#0" expanded="true" />
-            <element signature="e#914#915#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/galaxy/Galaxy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="708">
@@ -1207,6 +1156,56 @@
             <element signature="e#1160#1161#0" expanded="true" />
             <element signature="e#1206#1207#0" expanded="true" />
             <element signature="e#1236#1237#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="93" column="32" lean-forward="false" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#769#770#0" expanded="true" />
+            <element signature="e#797#798#0" expanded="true" />
+            <element signature="e#833#834#0" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#911#912#0" expanded="true" />
+            <element signature="e#951#952#0" expanded="true" />
+            <element signature="e#1000#1001#0" expanded="true" />
+            <element signature="e#1040#1041#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/planets/Planet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="31" column="18" lean-forward="false" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+            <element signature="e#601#602#0" expanded="true" />
+            <element signature="e#860#861#0" expanded="true" />
+            <element signature="e#914#915#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/PlanetTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
