@@ -1,5 +1,7 @@
 // import units.*;
 
+import java.util.Random;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -29,5 +31,11 @@ public class Main {
         System.out.println(String.format("%-15s %s (%s)", "Red" + " Player:", "President Morty", "Mortian"));
         System.out.println(String.format("%15s %s", "", "Citadel of Ricks"));
         System.out.println(String.format("%15s %s", "", "Screaming Sun Planet")); */
+
+        /*Random rand = new Random();
+        for(int i = 0; i < 100; i++) {
+            int j = rand.nextInt(4) + 3;
+            System.out.println(j);
+        }*/
     }
 }
