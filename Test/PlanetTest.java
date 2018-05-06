@@ -6,8 +6,8 @@ class PlanetTest {
 
     @Test
     void testPlanet() {
-        Planet planet = new Planet("Planet on a cob", 5);
+        Planet planet = new Planet("Planet on a cob");
         assertTrue(planet.getName().equals("Planet on a cob"));
-        assertTrue(planet.getResourceProduction() == 5);
+        assertTrue(planet.getResourceProduction() <= 6 && planet.getResourceProduction() >= 0);
     }
 }

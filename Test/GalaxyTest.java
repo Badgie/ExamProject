@@ -31,13 +31,13 @@ class GalaxyTest {
         galaxy.systems.addAll(sampleSystems);
 
         // Add planets
-        galaxy.getSystems().get(0).addPlanet(new Planet("Mecatol Rex", 5));
-        galaxy.getSystems().get(1).addPlanet(new Planet("Vega Minor", 1));
-        galaxy.getSystems().get(1).addPlanet(new Planet("Vega Major", 3));
-        galaxy.getSystems().get(3).addPlanet(new Planet("Industrex", 6));
-        galaxy.getSystems().get(4).addPlanet(new Planet("Rigel I", 3));
-        galaxy.getSystems().get(4).addPlanet(new Planet("Rigel II", 2));
-        galaxy.getSystems().get(6).addPlanet(new Planet("Mirage", 4));
+        galaxy.getSystems().get(0).addPlanet(new Planet("Mecatol Rex"));
+        galaxy.getSystems().get(1).addPlanet(new Planet("Vega Minor"));
+        galaxy.getSystems().get(1).addPlanet(new Planet("Vega Major"));
+        galaxy.getSystems().get(3).addPlanet(new Planet("Industrex"));
+        galaxy.getSystems().get(4).addPlanet(new Planet("Rigel I"));
+        galaxy.getSystems().get(4).addPlanet(new Planet("Rigel II"));
+        galaxy.getSystems().get(6).addPlanet(new Planet("Mirage"));
 
         // Add blue ships to system
         galaxy.getSystems().get(0).addShip(new DreadnoughtUnit(blue));
