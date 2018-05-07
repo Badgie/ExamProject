@@ -28,7 +28,7 @@ public class Galaxy {
 
     @Override
     public String toString() {
-        return "Galaxy{" + "systems=" + systems + ", players=" + players + '}';
+        return "Galaxy{" + "systems=" + systems + ", players=" + players + "}\n";
     }
 
     public List<Unit> getShips() {
@@ -80,13 +80,13 @@ public class Galaxy {
 
         // systems
         List<HexaSystem> sampleSystems = new ArrayList<>();
-        sampleSystems.add(new HexaSystem("Center"));
-        sampleSystems.add(new HexaSystem("North"));
-        sampleSystems.add(new HexaSystem("North East"));
-        sampleSystems.add(new HexaSystem("South East"));
-        sampleSystems.add(new HexaSystem("South"));
-        sampleSystems.add(new HexaSystem("South West"));
-        sampleSystems.add(new HexaSystem("North West"));
+        sampleSystems.add(new HexaSystem(galaxy));
+        sampleSystems.add(new HexaSystem(galaxy));
+        sampleSystems.add(new HexaSystem(galaxy));
+        sampleSystems.add(new HexaSystem(galaxy));
+        sampleSystems.add(new HexaSystem(galaxy));
+        sampleSystems.add(new HexaSystem(galaxy));
+        sampleSystems.add(new HexaSystem(galaxy));
         galaxy.systems.addAll(sampleSystems);
 
         // add planets
@@ -163,7 +163,7 @@ public class Galaxy {
     // fourth criteria
     private boolean checkCardinalDirections(Galaxy galaxy) throws PrintException {
         for(HexaSystem e : galaxy.getSystems()) {
-            e.setNeighbors(galaxy, e);
+            //e.setNeighbors(galaxy, e);
         }
 
         return true;
@@ -214,7 +214,12 @@ public class Galaxy {
 
         // for each cardinal in cardinals[], add new system to list
         for (String e : cardinals) {
-            galaxy.getSystems().add(new HexaSystem(e));
+            galaxy.getSystems().add(new HexaSystem(galaxy));
+        }
+
+        for(HexaSystem e : galaxy.getSystems()) {
+            e.setNeighborsInSystems(galaxy, e);
+
         }
     }
     // only run in generateGalaxy
