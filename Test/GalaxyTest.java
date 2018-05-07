@@ -25,13 +25,13 @@ class GalaxyTest {
 
         // Systems
         List<HexaSystem> sampleSystems = new ArrayList<>();
-        sampleSystems.add(new HexaSystem("Center"));
-        sampleSystems.add(new HexaSystem("North"));
-        sampleSystems.add(new HexaSystem("North East"));
-        sampleSystems.add(new HexaSystem("South East"));
-        sampleSystems.add(new HexaSystem("South"));
-        sampleSystems.add(new HexaSystem("South West"));
-        sampleSystems.add(new HexaSystem("North West"));
+        sampleSystems.add(new HexaSystem(galaxy));
+        sampleSystems.add(new HexaSystem(galaxy));
+        sampleSystems.add(new HexaSystem(galaxy));
+        sampleSystems.add(new HexaSystem(galaxy));
+        sampleSystems.add(new HexaSystem(galaxy));
+        sampleSystems.add(new HexaSystem(galaxy));
+        sampleSystems.add(new HexaSystem(galaxy));
         galaxy.systems.addAll(sampleSystems);
 
         // Add planets

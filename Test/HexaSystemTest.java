@@ -1,3 +1,4 @@
+import game.galaxy.Galaxy;
 import game.planets.Planet;
 import game.player.Player;
 import game.systems.HexaSystem;
@@ -13,7 +14,8 @@ class HexaSystemTest {
 
     @Test
     void testHexaSystem() {
-        HexaSystem hSystem = new HexaSystem("North");
+        Galaxy galaxy = new Galaxy();
+        HexaSystem hSystem = new HexaSystem(galaxy);
         Player red = new Player("CronenbergRick", "Cronenberg", "Red");
         Player blue = new Player("CronenbergMorty", "Cronenberg", "Blue");
 
@@ -44,7 +46,8 @@ class HexaSystemTest {
 
     @Test
     void addShip() {
-        HexaSystem hSystem = new HexaSystem("North");
+        Galaxy galaxy = new Galaxy();
+        HexaSystem hSystem = new HexaSystem(galaxy);
         Player blue = new Player("Hammerhead Morty", "Hammerhead", "Blue");
         hSystem.addShip(new DestroyerUnit(blue));
 
@@ -53,7 +56,8 @@ class HexaSystemTest {
 
     @Test
     void removeShip() {
-        HexaSystem hSystem = new HexaSystem("North");
+        Galaxy galaxy = new Galaxy();
+        HexaSystem hSystem = new HexaSystem(galaxy);
         Player blue = new Player("Mr. Meeseeks", "Meeseek", "Blue");
         CarrierUnit carrier = new CarrierUnit(blue);
 
@@ -68,7 +72,8 @@ class HexaSystemTest {
 
     @Test
     void addPlanet() {
-        HexaSystem hSystem = new HexaSystem("North");
+        Galaxy galaxy = new Galaxy();
+        HexaSystem hSystem = new HexaSystem(galaxy);
         Planet planet = new Planet("Earth dimension C-137");
 
         hSystem.addPlanet(planet);
