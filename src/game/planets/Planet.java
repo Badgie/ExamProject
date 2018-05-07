@@ -30,7 +30,7 @@ public class Planet {
 
     @Override
     public String toString() {
-        return "Planet{" + "name='" + name + '\'' + ", resourceProduction=" + resourceProduction + ", playerInControl=" + playerInControl + '}';
+        return "Planet{" + "name='" + name + '\'' + ",\n resourceProduction=" + resourceProduction + ",\n playerInControl=" + playerInControl + "}\n";
     }
 
     public void setPlayerInControl(Player playerInControl) {

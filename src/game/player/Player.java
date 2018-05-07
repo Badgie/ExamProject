@@ -74,6 +74,8 @@ public class Player {
         Comparator<Unit> sortByCombatVal = Comparator.comparing(Unit::getCombatValue);
         playerUnits.sort(sortByCombatVal.thenComparing(Unit::getResourceCost));
 
+        System.out.println(playerUnits.toString());
+
         return playerUnits;
     }
 
