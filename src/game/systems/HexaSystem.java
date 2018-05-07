@@ -11,15 +11,15 @@ import java.util.List;
 import java.util.Random;
 
 // Named HexaSystem to avoid clashes with System method
-public class HexaSystem {
+public class HexaSystem extends HexaSystemPositions {
 
     private String cardinal;
     private List<HexaSystem> neighbors;
     private List<Planet> planets;
     private List<Unit> ships;
 
-    public HexaSystem(String cardinal) {
-        this.cardinal = cardinal;
+    public HexaSystem(Galaxy galaxy) {
+        this.cardinal = setNewCardinal(galaxy);
         this.neighbors = new ArrayList<>();
         this.planets = new ArrayList<>();
         this.ships = new ArrayList<>();
@@ -31,6 +31,14 @@ public class HexaSystem {
 
     public List<HexaSystem> getNeighbors() {
         return neighbors;
+    }
+
+    public List<Unit> getSystemShips() {
+        return ships;
+    }
+
+    public List<Planet> getSystemPlanets() {
+        return planets;
     }
 
     public void addShip(Unit o) {
@@ -49,116 +57,16 @@ public class HexaSystem {
         neighbors.add(o);
     }
 
-    public List<Unit> getSystemShips() {
-        return ships;
-    }
-
-    public List<Planet> getSystemPlanets() {
-        return planets;
+    private String setNewCardinal(Galaxy galaxy) {
+        String[] cardinalDirections = {"Center", "North", "NorthEast", "NorthWest",
+                    "South", "SouthEast", "SouthWest"};
+        int amountOfSystems = galaxy.getSystems().size();
+        return cardinalDirections[amountOfSystems];
     }
 
     @Override
     public String toString() {
-        return "HexaSystem{" + "cardinal='" + cardinal + '\'' + ", neighbors=" + neighbors + ", planets=" + planets + ", ships=" + ships + '}';
-    }
-
-    private HexaSystem findNeighbor(Galaxy galaxy, String cardinality) throws PrintException {
-
-        for(HexaSystem e : galaxy.getSystems()) {
-            if(e.getCardinal().equals(cardinality)) {
-
-            } else {
-                throw new PrintException("ERROR: A system is missing.");
-            }
-        }
-
-        return new HexaSystem(cardinality);
-    }
-
-    public void setNeighbors(Galaxy galaxy, HexaSystem system) {
-        switch(system.getCardinal()) {
-            case "Center":
-                try {
-                    system.addNeighbor(findNeighbor(galaxy, "North"));
-                    system.addNeighbor(findNeighbor(galaxy, "North East"));
-                    system.addNeighbor(findNeighbor(galaxy, "North West"));
-                    system.addNeighbor(findNeighbor(galaxy, "South"));
-                    system.addNeighbor(findNeighbor(galaxy, "South East"));
-                    system.addNeighbor(findNeighbor(galaxy, "South West"));
-                } catch(PrintException e) {
-                    e.getMessage();
-                }
-                break;
-
-            case "North":
-                try {
-                    system.addNeighbor(findNeighbor(galaxy, "Center"));
-                    system.addNeighbor(findNeighbor(galaxy, "North East"));
-                    system.addNeighbor(findNeighbor(galaxy, "North West"));
-                } catch(PrintException e) {
-                    e.getMessage();
-                }
-                break;
-
-            case "North East":
-                try {
-                    system.addNeighbor(findNeighbor(galaxy, "Center"));
-                    system.addNeighbor(findNeighbor(galaxy, "North"));
-                    system.addNeighbor(findNeighbor(galaxy, "South East"));
-                } catch(PrintException e) {
-                    e.getMessage();
-                }
-                break;
-
-            case "North West":
-                try {
-                    system.addNeighbor(findNeighbor(galaxy, "Center"));
-                    system.addNeighbor(findNeighbor(galaxy, "North"));
-                    system.addNeighbor(findNeighbor(galaxy, "South West"));
-                } catch(PrintException e) {
-                    e.getMessage();
-                }
-                break;
-
-            case "South":
-                try {
-                    system.addNeighbor(findNeighbor(galaxy, "Center"));
-                    system.addNeighbor(findNeighbor(galaxy, "South East"));
-                    system.addNeighbor(findNeighbor(galaxy, "South West"));
-                } catch(PrintException e) {
-                    e.getMessage();
-                }
-                break;
-            case "South East":
-                try {
-                    system.addNeighbor(findNeighbor(galaxy, "Center"));
-                    system.addNeighbor(findNeighbor(galaxy, "South"));
-                    system.addNeighbor(findNeighbor(galaxy, "North East"));
-                } catch(PrintException e) {
-                    e.getMessage();
-                }
-                break;
-
-            case "South West":
-                try {
-                    system.addNeighbor(findNeighbor(galaxy, "Center"));
-                    system.addNeighbor(findNeighbor(galaxy, "South"));
-                    system.addNeighbor(findNeighbor(galaxy, "North West"));
-                } catch(PrintException e) {
-                    e.getMessage();
-                }
-                break;
-        }
-    }
-
-
-
-    public boolean checkIfMoreThanTwoPlayersExistInSystem() {
-        if(getPlayersInSystem().size() > 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return "HexaSystem{" + "cardinal='" + cardinal + '\'' + ", neighbors=" + neighbors + ",\n planets=" + planets + ",\n ships=" + ships + "}\n";
     }
 
     public void concludeCombat(Player playerOne, Player playerTwo) {
