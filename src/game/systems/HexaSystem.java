@@ -59,18 +59,18 @@ public class HexaSystem extends HexaSystemPositions {
 
     private String setNewCardinal(Galaxy galaxy) {
         String[] cardinalDirections = {"Center", "North", "NorthEast", "NorthWest",
-                    "South", "SouthEast", "SouthWest"};
+                "South", "SouthEast", "SouthWest"};
         int amountOfSystems = galaxy.getSystems().size();
         return cardinalDirections[amountOfSystems];
     }
 
     @Override
     public String toString() {
-        return "HexaSystem{" + "cardinal='" + cardinal + '\'' + ", neighbors=" + neighbors + ",\n planets=" + planets + ",\n ships=" + ships + "}\n";
+        return "HexaSystem{" + "cardinal='" + cardinal + '\'' + ",\n planets=" + planets + ",\n ships=" + ships + "}\n";
     }
 
     public void concludeCombat(Player playerOne, Player playerTwo) {
-        while(getPlayerShipsInSystem(playerOne).size() != 0 ||
+        while(getPlayerShipsInSystem(playerOne).size() != 0 ^
                 getPlayerShipsInSystem(playerTwo).size() != 0) {
             List<Unit> hitsByPlayerOne = calculateHitsDoneByPlayerOne(playerOne, playerTwo);
             List<Unit> hitsByPlayerTwo = calculateHitsDoneByPlayerTwo(playerOne, playerTwo);

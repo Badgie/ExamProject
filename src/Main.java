@@ -9,7 +9,8 @@ public class Main {
     public static void main(String[] args) {
         
         Galaxy galaxy = new Galaxy().constructGalaxy();
-        System.out.println(galaxy.toString());
+        //System.out.println(galaxy.toString());
         galaxy.checkIfCombatIsNecessaryInSystems();
+        System.out.println("Done!");
     }
 }

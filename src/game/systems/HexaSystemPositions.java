@@ -5,7 +5,7 @@ import game.galaxy.Galaxy;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HexaSystemPositions {
+public class HexaSystemPositions extends HexaSystemPositionsCheckIfCorrect {
 
     public void setNeighborsInSystems(Galaxy galaxy, HexaSystem system) {
         switch (system.getCardinal()) {

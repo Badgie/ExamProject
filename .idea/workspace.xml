@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="fc01e971-dd80-42bb-b3b2-d7f65bbf43f3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Test/GalaxyTest.java" afterPath="$PROJECT_DIR$/Test/GalaxyTest.java" />
-      <change beforePath="$PROJECT_DIR$/Test/HexaSystemTest.java" afterPath="$PROJECT_DIR$/Test/HexaSystemTest.java" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
       <change beforePath="$PROJECT_DIR$/src/game/galaxy/Galaxy.java" afterPath="$PROJECT_DIR$/src/game/galaxy/Galaxy.java" />
-      <change beforePath="$PROJECT_DIR$/src/game/planets/Planet.java" afterPath="$PROJECT_DIR$/src/game/planets/Planet.java" />
-      <change beforePath="$PROJECT_DIR$/src/game/player/Player.java" afterPath="$PROJECT_DIR$/src/game/player/Player.java" />
       <change beforePath="$PROJECT_DIR$/src/game/systems/HexaSystem.java" afterPath="$PROJECT_DIR$/src/game/systems/HexaSystem.java" />
+      <change beforePath="$PROJECT_DIR$/src/game/systems/HexaSystemPositions.java" afterPath="$PROJECT_DIR$/src/game/systems/HexaSystemPositions.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,8 +33,8 @@
           <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="153">
-                  <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+                <state relative-caret-position="221">
+                  <caret line="13" column="36" lean-forward="true" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -63,8 +61,8 @@
           <file leaf-file-name="HexaSystem.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/game/systems/HexaSystem.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="629">
-                  <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+                <state relative-caret-position="189">
+                  <caret line="72" column="61" lean-forward="false" selection-start-line="72" selection-start-column="61" selection-end-line="72" selection-end-column="61" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#743#744#0" expanded="true" />
@@ -88,11 +86,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HexaSystemPositions.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="HexaSystemPositions.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/game/systems/HexaSystemPositions.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+                <state relative-caret-position="-782">
+                  <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -103,8 +101,8 @@
           <file leaf-file-name="Galaxy.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/game/galaxy/Galaxy.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="526">
-                  <caret line="220" column="47" lean-forward="true" selection-start-line="220" selection-start-column="47" selection-end-line="220" selection-end-column="47" />
+                <state relative-caret-position="280">
+                  <caret line="356" column="0" lean-forward="false" selection-start-line="356" selection-start-column="0" selection-end-line="356" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#572#573#0" expanded="true" />
@@ -114,6 +112,16 @@
                     <element signature="e#1324#1325#0" expanded="true" />
                     <element signature="e#1354#1355#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="HexaSystemPositionsCheckIfCorrect.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/game/systems/HexaSystemPositionsCheckIfCorrect.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="187">
+                  <caret line="11" column="88" lean-forward="true" selection-start-line="11" selection-start-column="88" selection-end-line="11" selection-end-column="88" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -209,6 +217,7 @@
       <find>unit1</find>
       <find>private</find>
       <find>public</find>
+      <find>cardinalDirectionsAreCorrect</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -259,17 +268,18 @@
         <option value="$PROJECT_DIR$/src/game/units/CruiserUnit.java" />
         <option value="$PROJECT_DIR$/src/game/units/CarrierUnit.java" />
         <option value="$PROJECT_DIR$/Test/PlanetTest.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/game/planets/Planet.java" />
         <option value="$PROJECT_DIR$/src/game/systems/HexaSystemBuilder.java" />
         <option value="$PROJECT_DIR$/Test/HexaSystemTest.java" />
         <option value="$PROJECT_DIR$/Test/GalaxyTest.java" />
         <option value="$PROJECT_DIR$/src/game/systems/HexaSystemPositionsBuilder.java" />
         <option value="$PROJECT_DIR$/src/game/player/Player.java" />
-        <option value="$PROJECT_DIR$/src/game/systems/HexaSystem.java" />
         <option value="$PROJECT_DIR$/src/game/systems/HexaSystemPositionsSetNeighbors.java" />
         <option value="$PROJECT_DIR$/src/game/systems/HexaSystemPositions.java" />
+        <option value="$PROJECT_DIR$/src/game/systems/HexaSystemPositionsCheckIfCorrect.java" />
         <option value="$PROJECT_DIR$/src/game/galaxy/Galaxy.java" />
+        <option value="$PROJECT_DIR$/src/game/systems/HexaSystem.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -702,7 +712,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997879" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3997879" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -752,33 +762,36 @@
           <properties />
           <option name="timeStamp" value="84" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/game/systems/HexaSystemPositionsCheckIfCorrect.java</url>
+          <line>11</line>
+          <properties />
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>10</line>
+          <properties />
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>12</line>
+          <properties />
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>13</line>
+          <properties />
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="85" />
+      <option name="time" value="111" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/game/units/DestroyerUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-          <folding>
-            <element signature="e#506#507#0" expanded="false" />
-            <element signature="e#546#547#0" expanded="false" />
-            <element signature="e#595#596#0" expanded="false" />
-            <element signature="e#634#635#0" expanded="false" />
-            <element signature="e#685#686#0" expanded="false" />
-            <element signature="e#726#727#0" expanded="false" />
-            <element signature="e#772#773#0" expanded="false" />
-            <element signature="e#808#809#0" expanded="false" />
-            <element signature="e#857#858#0" expanded="false" />
-            <element signature="e#893#894#0" expanded="false" />
-            <element signature="e#939#940#0" expanded="false" />
-            <element signature="e#972#973#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/units/CruiserUnit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
@@ -996,14 +1009,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="439" column="0" lean-forward="false" selection-start-line="439" selection-start-column="0" selection-end-line="439" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/util/Objects.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -1094,16 +1099,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Test/PlanetTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1176,10 +1171,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/systems/HexaSystemPositions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-782">
+          <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="322" column="0" lean-forward="false" selection-start-line="322" selection-start-column="0" selection-end-line="322" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/galaxy/Galaxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="220" column="47" lean-forward="true" selection-start-line="220" selection-start-column="47" selection-end-line="220" selection-end-column="47" />
+        <state relative-caret-position="280">
+          <caret line="356" column="0" lean-forward="false" selection-start-line="356" selection-start-column="0" selection-end-line="356" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#572#573#0" expanded="true" />
@@ -1194,8 +1207,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/game/systems/HexaSystem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+        <state relative-caret-position="189">
+          <caret line="72" column="61" lean-forward="false" selection-start-line="72" selection-start-column="61" selection-end-line="72" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#743#744#0" expanded="true" />
@@ -1218,13 +1231,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/systems/HexaSystemPositions.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        <state relative-caret-position="221">
+          <caret line="13" column="36" lean-forward="true" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/systems/HexaSystemPositionsCheckIfCorrect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="88" lean-forward="true" selection-start-line="11" selection-start-column="88" selection-end-line="11" selection-end-column="88" />
+          <folding />
         </state>
       </provider>
     </entry>

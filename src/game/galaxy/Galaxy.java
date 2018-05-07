@@ -162,11 +162,15 @@ public class Galaxy {
 
     // fourth criteria
     private boolean checkCardinalDirections(Galaxy galaxy) throws PrintException {
+        boolean cardinalDirectionsMakeSense = false;
         for(HexaSystem e : galaxy.getSystems()) {
-            //e.setNeighbors(galaxy, e);
+            if(e.checkIfNeighborsMatch(e)) {
+                cardinalDirectionsMakeSense = true;
+            } else {
+                throw new PrintException("ERROR: A system has incorrect neighbors");
+            }
         }
-
-        return true;
+        return cardinalDirectionsMakeSense;
     }
 
     // helpermethods
