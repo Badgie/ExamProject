@@ -1,27 +1,35 @@
 package game.systems;
 
+import game.exceptions.SystemHasIncorrectNeighborsException;
 import game.galaxy.Galaxy;
 
 public class HexaSystemPositionsCheckIfCorrect {
 
-    public boolean checkIfNeighborsMatch(HexaSystem system) {
+    public boolean checkIfNeighborsMatch(HexaSystem system) throws SystemHasIncorrectNeighborsException {
         switch(system.getCardinal()) {
             case "Center":
-                return checkCenterNeighbors(system);
+                if(checkCenterNeighbors(system)) return true;
+                else throw new SystemHasIncorrectNeighborsException(system.getCardinal());
             case "North":
-                return (checkNorthNeighbors(system) && checkIfCenterIsNeighbor(system));
+                if(checkNorthNeighbors(system) && checkIfCenterIsNeighbor(system)) return true;
+                else throw new SystemHasIncorrectNeighborsException(system.getCardinal());
             case "NorthEast":
-                return (checkNorthEastNeighbors(system) && checkIfCenterIsNeighbor(system));
+                if(checkNorthEastNeighbors(system) && checkIfCenterIsNeighbor(system)) return true;
+                else throw new SystemHasIncorrectNeighborsException(system.getCardinal());
             case "NorthWest":
-                return (checkNorthWestNeighbors(system) && checkIfCenterIsNeighbor(system));
+                if(checkNorthWestNeighbors(system) && checkIfCenterIsNeighbor(system)) return true;
+                else throw new SystemHasIncorrectNeighborsException(system.getCardinal());
             case "South":
-                return (checkSouthNeighbors(system) && checkIfCenterIsNeighbor(system));
+                if(checkSouthNeighbors(system) && checkIfCenterIsNeighbor(system)) return true;
+                else throw new SystemHasIncorrectNeighborsException(system.getCardinal());
             case "SouthEast":
-                return (checkSouthEastNeighbors(system) && checkIfCenterIsNeighbor(system));
+                if(checkSouthEastNeighbors(system) && checkIfCenterIsNeighbor(system)) return true;
+                else throw new SystemHasIncorrectNeighborsException(system.getCardinal());
             case "SouthWest":
-                return (checkSouthWestNeighbors(system) && checkIfCenterIsNeighbor(system));
+                if(checkSouthWestNeighbors(system) && checkIfCenterIsNeighbor(system)) return true;
+                else throw new SystemHasIncorrectNeighborsException(system.getCardinal());
             default:
-                return false;
+                throw new SystemHasIncorrectNeighborsException("FATAL", "Reached an unknown system.");
         }
     }
 

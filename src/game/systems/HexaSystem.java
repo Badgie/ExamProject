@@ -1,10 +1,8 @@
 package game.systems;
 
-import game.exceptions.PrintException;
 import game.galaxy.Galaxy;
 import game.planets.Planet;
 import game.player.Player;
-import game.units.CarrierUnit;
 import game.units.Unit;
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package game.galaxy;
 
-import game.exceptions.PrintException;
+import game.exceptions.*;
 import game.planets.Planet;
 import game.player.Player;
 import game.systems.HexaSystem;
@@ -63,8 +63,8 @@ public class Galaxy {
             generatePlayers(this);
             checkIfGalaxyIsLegal(this);
 
-        } catch(PrintException e) {
-            e.getMessage();
+        } catch(GalaxyNotLegalException e) {
+            e.printStackTrace();
         }
 
         return this;
@@ -135,66 +135,79 @@ public class Galaxy {
 
     // Problem 9
     // TODO: implement fourth criteria
-    private boolean checkIfGalaxyIsLegal(Galaxy galaxy) throws PrintException {
+    private boolean checkIfGalaxyIsLegal(Galaxy galaxy) throws GalaxyNotLegalException {
+        boolean condOne = false;
+        boolean condTwo = false;
+        boolean condThree = false;
         try {
-            boolean condOne = checkCenterGalaxyPlanets(galaxy);
-            boolean condTwo = checkForDuplicatePlanets(galaxy);
-            boolean condThree = checkForMoreThanThreePlanets(galaxy);
-            boolean condFour = checkCardinalDirections(galaxy);
-
-            if (condOne && condTwo && condThree && condFour) {
-
-            } else {
-                throw new PrintException("ERROR: Galaxy is not legal.");
-            }
-        } catch(PrintException e) {
-            e.getMessage();
+            condOne = checkCenterGalaxyPlanets(galaxy);
+        } catch(CenterSystemNotLegalException x) {
+            x.printStackTrace();
         }
-        return true;
+
+        try {
+            condTwo = checkForDuplicatePlanets(galaxy);
+        } catch(PlanetExistsMoreThanOnceInGalaxyException x) {
+            x.printStackTrace();
+        }
+
+        try {
+            condThree = checkForMoreThanThreePlanets(galaxy);
+        } catch(SystemContainsMoreThanThreePlanetsException x) {
+            x.printStackTrace();
+        }
+
+        boolean condFour = checkCardinalDirections(galaxy);
+
+        if (condOne && condTwo && condThree && condFour) {
+            return true;
+        } else {
+            throw new GalaxyNotLegalException();
+        }
     }
 
     // first criteria
-    private boolean checkCenterGalaxyPlanets(Galaxy galaxy) throws PrintException {
+    private boolean checkCenterGalaxyPlanets(Galaxy galaxy) throws CenterSystemNotLegalException {
             if(getCenterSystemPlanets(galaxy).contains("Mecatol Rex")
                     && getCenterSystemPlanets(galaxy).size() == 1) {
             } else {
-                throw new PrintException("ERROR: Either the center system contains planets other than " +
-                    "Mecatol Rex, or it does not contain Mecatol Rex.");
+                throw new CenterSystemNotLegalException();
         }
         return true;
     }
 
     // second criteria
-    private boolean checkForDuplicatePlanets(Galaxy galaxy) throws PrintException {
+    private boolean checkForDuplicatePlanets(Galaxy galaxy) throws PlanetExistsMoreThanOnceInGalaxyException {
         if(galaxy.getPlanets().size() == getGalaxyPlanetNames(galaxy).size()) {
         } else {
-            throw new PrintException("ERROR: A planet exists more than once in the galaxy.");
+            throw new PlanetExistsMoreThanOnceInGalaxyException();
         }
         return true;
     }
 
     // third criteria
-    private boolean checkForMoreThanThreePlanets(Galaxy galaxy) throws PrintException {
+    private boolean checkForMoreThanThreePlanets(Galaxy galaxy) throws SystemContainsMoreThanThreePlanetsException {
         for(HexaSystem e : galaxy.getSystems()) {
             if(getSystemPlanetNames(e).size() <= 3) {
             } else {
-                throw new PrintException("ERROR: A system contains more than three planets.");
+                throw new SystemContainsMoreThanThreePlanetsException();
             }
         }
         return true;
     }
 
     // fourth criteria
-    private boolean checkCardinalDirections(Galaxy galaxy) throws PrintException {
-        boolean cardinalDirectionsMakeSense = false;
+    private boolean checkCardinalDirections(Galaxy galaxy) {
         for(HexaSystem e : galaxy.getSystems()) {
-            if(e.checkIfNeighborsMatch(e)) {
-                cardinalDirectionsMakeSense = true;
-            } else {
-                throw new PrintException("ERROR: A system has incorrect neighbors");
+            try {
+                if (e.checkIfNeighborsMatch(e)) {
+
+                }
+            } catch(SystemHasIncorrectNeighborsException x) {
+                x.printStackTrace();
             }
         }
-        return cardinalDirectionsMakeSense;
+        return true;
     }
 
     // helpermethods
