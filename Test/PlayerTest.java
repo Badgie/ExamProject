@@ -1,3 +1,4 @@
+import game.galaxy.Galaxy;
 import game.player.Player;
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +8,8 @@ class PlayerTest {
 
     @Test
     void testPlayer() {
-        Player player = new Player("PickleRick", "Pickle", "Green");
+        Galaxy galaxy = new Galaxy();
+        Player player = new Player("PickleRick", "Pickle", galaxy);
         assertEquals("PickleRick", player.getName());
         assertEquals("Pickle", player.getRace());
         assertEquals("Green", player.getColor());

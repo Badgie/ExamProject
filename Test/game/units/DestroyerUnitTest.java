@@ -1,5 +1,6 @@
 package game.units;
 
+import game.galaxy.Galaxy;
 import game.player.Player;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +10,8 @@ class DestroyerUnitTest {
 
     @Test
     void testDestroyerUnit() {
-        Player player = new Player("EyeHoleMan", "Eyehole", "Blue");
+        Galaxy galaxy = new Galaxy();
+        Player player = new Player("EyeHoleMan", "Eyehole", galaxy);
         DestroyerUnit destroyer = new DestroyerUnit(player);
         assertEquals(1, destroyer.resourceCost);
         assertEquals(9, destroyer.combatValue);

@@ -16,8 +16,8 @@ class HexaSystemTest {
     void testHexaSystem() {
         Galaxy galaxy = new Galaxy();
         HexaSystem hSystem = new HexaSystem(galaxy);
-        Player red = new Player("CronenbergRick", "Cronenberg", "Red");
-        Player blue = new Player("CronenbergMorty", "Cronenberg", "Blue");
+        Player red = new Player("CronenbergRick", "Cronenberg", galaxy);
+        Player blue = new Player("CronenbergMorty", "Cronenberg", galaxy);
 
         hSystem.addShip(new DestroyerUnit(red));
         hSystem.addShip(new DreadnoughtUnit(red));
@@ -48,7 +48,7 @@ class HexaSystemTest {
     void addShip() {
         Galaxy galaxy = new Galaxy();
         HexaSystem hSystem = new HexaSystem(galaxy);
-        Player blue = new Player("Hammerhead Morty", "Hammerhead", "Blue");
+        Player blue = new Player("Hammerhead Morty", "Hammerhead", galaxy);
         hSystem.addShip(new DestroyerUnit(blue));
 
         assertTrue(hSystem.getSystemShips().get(0).getUnitType().equals("Destroyer"));
@@ -58,7 +58,7 @@ class HexaSystemTest {
     void removeShip() {
         Galaxy galaxy = new Galaxy();
         HexaSystem hSystem = new HexaSystem(galaxy);
-        Player blue = new Player("Mr. Meeseeks", "Meeseek", "Blue");
+        Player blue = new Player("Mr. Meeseeks", "Meeseek", galaxy);
         CarrierUnit carrier = new CarrierUnit(blue);
 
         hSystem.addShip(carrier);

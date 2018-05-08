@@ -1,5 +1,6 @@
 package game.units;
 
+import game.galaxy.Galaxy;
 import game.player.Player;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +10,8 @@ class CruiserUnitTest {
 
     @Test
     void testCruiserUnit() {
-        Player player = new Player("RegularOldPlumbus", "Plumbus", "Pink");
+        Galaxy galaxy = new Galaxy();
+        Player player = new Player("RegularOldPlumbus", "Plumbus", galaxy);
         CruiserUnit cruiser = new CruiserUnit(player);
         assertEquals(2, cruiser.resourceCost);
         assertEquals(7, cruiser.combatValue);

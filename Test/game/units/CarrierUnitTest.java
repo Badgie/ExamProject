@@ -1,5 +1,6 @@
 package game.units;
 
+import game.galaxy.Galaxy;
 import game.player.Player;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +10,8 @@ class CarrierUnitTest {
 
     @Test
     void testCarrierUnit() {
-        Player player = new Player("Gazorpazorpfield", "Cat-thing", "Red");
+        Galaxy galaxy = new Galaxy();
+        Player player = new Player("Gazorpazorpfield", "Cat-thing", galaxy);
         CarrierUnit carrier = new CarrierUnit(player);
         assertEquals(3, carrier.resourceCost);
         assertEquals(9, carrier.combatValue);
