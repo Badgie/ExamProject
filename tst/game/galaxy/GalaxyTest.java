@@ -1,3 +1,5 @@
+package game.galaxy;
+
 import game.galaxy.Galaxy;
 import game.planets.Planet;
 import game.player.Player;
@@ -20,19 +22,20 @@ class GalaxyTest {
         Galaxy galaxy = new Galaxy();
 
         // Players
-        Player blue = new Player("Crassus", "The Emirates of Hacan", "Blue");
-        Player red = new Player("Pompey", "The Federation of Sol", "Red");
+        Player blue = new Player("Crassus", "The Emirates of Hacan", galaxy);
+        Player red = new Player("Pompey", "The Federation of Sol", galaxy);
+
+        galaxy.getPlayers().add(blue);
+        galaxy.getPlayers().add(red);
 
         // Systems
-        List<HexaSystem> sampleSystems = new ArrayList<>();
-        sampleSystems.add(new HexaSystem(galaxy));
-        sampleSystems.add(new HexaSystem(galaxy));
-        sampleSystems.add(new HexaSystem(galaxy));
-        sampleSystems.add(new HexaSystem(galaxy));
-        sampleSystems.add(new HexaSystem(galaxy));
-        sampleSystems.add(new HexaSystem(galaxy));
-        sampleSystems.add(new HexaSystem(galaxy));
-        galaxy.systems.addAll(sampleSystems);
+        galaxy.getSystems().add(new HexaSystem(galaxy));
+        galaxy.getSystems().add(new HexaSystem(galaxy));
+        galaxy.getSystems().add(new HexaSystem(galaxy));
+        galaxy.getSystems().add(new HexaSystem(galaxy));
+        galaxy.getSystems().add(new HexaSystem(galaxy));
+        galaxy.getSystems().add(new HexaSystem(galaxy));
+        galaxy.getSystems().add(new HexaSystem(galaxy));
 
         // Add planets
         galaxy.getSystems().get(0).addPlanet(new Planet("Mecatol Rex"));
@@ -53,17 +56,14 @@ class GalaxyTest {
         galaxy.getSystems().get(1).addShip(new CruiserUnit(red));
         galaxy.getSystems().get(1).addShip(new CarrierUnit(red));
 
-        // Test game.systems.HexaSystem list
-        assertTrue(galaxy.systems.containsAll(sampleSystems));
-
         // Test individual systems
         assertTrue(galaxy.getSystems().get(0).getCardinal().equals("Center"));
         assertTrue(galaxy.getSystems().get(1).getCardinal().equals("North"));
-        assertTrue(galaxy.getSystems().get(2).getCardinal().equals("North East"));
-        assertTrue(galaxy.getSystems().get(3).getCardinal().equals("South East"));
+        assertTrue(galaxy.getSystems().get(2).getCardinal().equals("NorthEast"));
+        assertTrue(galaxy.getSystems().get(3).getCardinal().equals("NorthWest"));
         assertTrue(galaxy.getSystems().get(4).getCardinal().equals("South"));
-        assertTrue(galaxy.getSystems().get(5).getCardinal().equals("South West"));
-        assertTrue(galaxy.getSystems().get(6).getCardinal().equals("North West"));
+        assertTrue(galaxy.getSystems().get(5).getCardinal().equals("SouthEast"));
+        assertTrue(galaxy.getSystems().get(6).getCardinal().equals("SouthWest"));
 
         // Test individual planets
         assertTrue(galaxy.getPlanets().get(0).getName().equals("Mecatol Rex"));
@@ -82,4 +82,6 @@ class GalaxyTest {
         assertTrue(galaxy.getShips().get(4).getOwner().equals(red));
         assertTrue(galaxy.getShips().get(5).getOwner().equals(red));
     }
+
+
 }

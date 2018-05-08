@@ -1,3 +1,9 @@
+/*
+ * Made by:
+ * Jonas Krogh Hansen, Software
+ * jh17@student.aau.dk
+ */
+
 package game.planets;
 
 import game.player.Player;
@@ -5,13 +11,15 @@ import game.player.Player;
 import java.util.Random;
 
 public class Planet {
-    Random rand = new Random();
+    private Random rand = new Random();
     private String name;
     private int resourceProduction;
     private Player playerInControl;
 
     public Planet(String name) {
         this.name = name;
+
+        // assign random resourceProduction upon creation
         this.resourceProduction = rand.nextInt(7);
         this.playerInControl = null;
     }
@@ -22,10 +30,6 @@ public class Planet {
 
     public int getResourceProduction() {
         return resourceProduction;
-    }
-
-    public Player getPlayerInControl() {
-        return playerInControl;
     }
 
     @Override

@@ -1,3 +1,9 @@
+/*
+ * Made by:
+ * Jonas Krogh Hansen, Software
+ * jh17@student.aau.dk
+ */
+
 package game.units;
 
 import game.player.Player;
@@ -7,7 +13,7 @@ public class DreadnoughtUnit implements Unit {
     int combatValue;
     int movementSpeed;
     int capacity;
-    private String unitType;
+    String unitType;
     Player owner;
 
     public DreadnoughtUnit(Player owner) {
