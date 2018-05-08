@@ -1,12 +1,15 @@
+/*
+ * Made by:
+ * Jonas Krogh Hansen, Software
+ * jh17@student.aau.dk
+ */
+
 package game.player;
 
 import game.galaxy.Galaxy;
 import game.planets.Planet;
-import game.systems.HexaSystem;
 import game.units.Unit;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.*;
 
 public class Player {
@@ -21,6 +24,8 @@ public class Player {
     public Player(String name, String race, Galaxy galaxy) {
         this.name = name;
         this.race = race;
+
+        // assign player color upon creation
         this.color = setPlayerColor(galaxy);
         this.ships = new ArrayList<>();
         this.controlledPlanets = new ArrayList<>();
@@ -48,8 +53,13 @@ public class Player {
     }
 
     public List<Unit> getShipsInCombatSorted() {
-        Comparator<Unit> sortResourceCost = Comparator.comparing(Unit::getResourceCost);
-        shipsInCombat.sort(sortResourceCost.thenComparing(Unit::getCombatValue));
+
+        // sort player units that are in combat
+        // firstly sort by resourceCost, then combatValue, to get the list primarily sorted by combatValue
+        Comparator<Unit> sortByCombatVal = Comparator.comparing(Unit::getCombatValue);
+        Comparator<Unit> sortByResourceCost = Comparator.comparing(Unit::getResourceCost);
+        shipsInCombat.sort(sortByResourceCost);
+        shipsInCombat.sort(sortByCombatVal);
 
         return shipsInCombat;
     }
@@ -60,6 +70,8 @@ public class Player {
 
     private String setPlayerColor(Galaxy galaxy) {
         String[] colors = {"Green", "Red", "Yellow", "Purple", "Black", "Blue"};
+
+        // as players are created, amountOfPlayers will increase to ensure a color isn't assigned more than once
         int amountOfPlayers = galaxy.getPlayers().size();
         return colors[amountOfPlayers];
     }
@@ -89,12 +101,15 @@ public class Player {
 
     // problem 10
     public List<Unit> getPlayerShipsSortedHighToLow() {
-        List<Unit> playerUnits = new ArrayList<>(this.ships);
-        Comparator<Unit> sortResourceCost = Comparator.comparing(Unit::getResourceCost);
-        playerUnits.sort(sortResourceCost.thenComparing(Unit::getCombatValue));
+        List<Unit> playerShipsSorted = this.getShips();
 
-        System.out.println(playerUnits.toString());
+        // sort player units firstly by resourceCost, then combatValue, to get the list primarily sorted by combatValue
+        Comparator<Unit> sortByCombatVal = Comparator.comparing(Unit::getCombatValue);
+        Comparator<Unit> sortByResourceCost = Comparator.comparing(Unit::getResourceCost);
+        playerShipsSorted.sort(sortByResourceCost);
+        playerShipsSorted.sort(sortByCombatVal);
 
-        return playerUnits;
+
+        return playerShipsSorted;
     }
 }
