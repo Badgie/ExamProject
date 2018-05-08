@@ -16,13 +16,15 @@ public class Player {
     private String color;
     private List<Unit> ships;
     private List<Planet> controlledPlanets;
+    private List<Unit> shipsInCombat;
 
-    public Player(String name, String race, String color) {
+    public Player(String name, String race, Galaxy galaxy) {
         this.name = name;
         this.race = race;
-        this.color = color;
+        this.color = setPlayerColor(galaxy);
         this.ships = new ArrayList<>();
         this.controlledPlanets = new ArrayList<>();
+        this.shipsInCombat = new ArrayList<>();
     }
 
     public String getName() {
@@ -45,8 +47,25 @@ public class Player {
         return controlledPlanets;
     }
 
-    public void addControlledPlanet(Planet o) {
-        controlledPlanets.add(o);
+    public List<Unit> getShipsInCombatSorted() {
+        Comparator<Unit> sortResourceCost = Comparator.comparing(Unit::getResourceCost);
+        shipsInCombat.sort(sortResourceCost.thenComparing(Unit::getCombatValue));
+
+        return shipsInCombat;
+    }
+
+    public void clearShipsInCombat() {
+        this.shipsInCombat.clear();
+    }
+
+    private String setPlayerColor(Galaxy galaxy) {
+        String[] colors = {"Green", "Red", "Yellow", "Purple", "Black", "Blue"};
+        int amountOfPlayers = galaxy.getPlayers().size();
+        return colors[amountOfPlayers];
+    }
+
+    public void addShipInCombat(Unit e) {
+        this.shipsInCombat.add(e);
     }
 
     @Override
@@ -71,52 +90,11 @@ public class Player {
     // problem 10
     public List<Unit> getPlayerShipsSortedHighToLow() {
         List<Unit> playerUnits = new ArrayList<>(this.ships);
-        Comparator<Unit> sortByCombatVal = Comparator.comparing(Unit::getCombatValue);
-        playerUnits.sort(sortByCombatVal.thenComparing(Unit::getResourceCost));
+        Comparator<Unit> sortResourceCost = Comparator.comparing(Unit::getResourceCost);
+        playerUnits.sort(sortResourceCost.thenComparing(Unit::getCombatValue));
 
         System.out.println(playerUnits.toString());
 
         return playerUnits;
-    }
-
-    public Unit getPlayerWorstShip() {
-        Unit worstShip;
-        worstShip = getPlayerShipsSortedHighToLow().get(
-                getPlayerShipsSortedHighToLow().size() - 1);
-        return worstShip;
-    }
-
-    // problem 11
-    public void createPlanetaryControlFile(Galaxy galaxy) throws IOException {
-        PrintWriter writer = new PrintWriter("planetary-control.txt", "UTF-8");
-
-        // for every player in the galaxy, write headliner
-        for(Player e : galaxy.getPlayers()) {
-            writer.println(String.format("%-15s %s (%s)",
-                    e.color + " Player:", e.name, e.race));
-
-            // for every planet the player controls, write planet name
-            for(Planet p : e.controlledPlanets) {
-                writer.println(String.format("%15s %s", "", p.getName()));
-            }
-
-            // add newline once player no longer controls any planets
-            writer.println("\n");
-            writer.close();
-        }
-    }
-
-    public void setPlanetaryControl(HexaSystem system, Player player) {
-        List<Unit> otherShipsInSystem = new ArrayList<>(system.getSystemShips());
-        otherShipsInSystem.removeAll(player.getShips());
-        for(Unit e : player.getShips()) {
-            if(system.getSystemShips().contains(e) &&
-                    otherShipsInSystem.size() == 0) {
-                for(Planet p : system.getSystemPlanets()) {
-                    p.setPlayerInControl(player);
-                    player.addControlledPlanet(p);
-                }
-            }
-        }
     }
 }
