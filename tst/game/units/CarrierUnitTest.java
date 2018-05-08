@@ -18,5 +18,6 @@ class CarrierUnitTest {
         assertEquals(1, carrier.movementSpeed);
         assertEquals(6, carrier.capacity);
         assertEquals(player, carrier.owner);
+        assertEquals("Carrier", carrier.unitType);
     }
 }

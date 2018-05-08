@@ -18,6 +18,7 @@ class DestroyerUnitTest {
         assertEquals(2, destroyer.movementSpeed);
         assertEquals(0, destroyer.capacity);
         assertEquals(player, destroyer.owner);
+        assertEquals("Destroyer", destroyer.unitType);
     }
 
 }

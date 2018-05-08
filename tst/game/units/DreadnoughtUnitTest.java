@@ -18,6 +18,7 @@ class DreadnoughtUnitTest {
         assertEquals(1, dreadnought.movementSpeed);
         assertEquals(0, dreadnought.capacity);
         assertEquals(player, dreadnought.owner);
+        assertEquals("Dreadnought", dreadnought.unitType);
     }
 
 }

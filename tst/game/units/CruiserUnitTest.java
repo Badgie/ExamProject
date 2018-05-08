@@ -18,5 +18,6 @@ class CruiserUnitTest {
         assertEquals(2, cruiser.movementSpeed);
         assertEquals(0, cruiser.capacity);
         assertEquals(player, cruiser.owner);
+        assertEquals("Cruiser", cruiser.unitType);
     }
 }
