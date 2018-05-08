@@ -20,8 +20,8 @@ class GalaxyTest {
         Galaxy galaxy = new Galaxy();
 
         // Players
-        Player blue = new Player("Crassus", "The Emirates of Hacan", "Blue");
-        Player red = new Player("Pompey", "The Federation of Sol", "Red");
+        Player blue = new Player("Crassus", "The Emirates of Hacan", galaxy);
+        Player red = new Player("Pompey", "The Federation of Sol", galaxy);
 
         // Systems
         List<HexaSystem> sampleSystems = new ArrayList<>();

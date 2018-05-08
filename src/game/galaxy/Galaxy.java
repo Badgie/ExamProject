@@ -75,8 +75,8 @@ public class Galaxy {
         Galaxy galaxy = new Galaxy();
 
         // players
-        Player blue = new Player("Crassus", "The Emirates of Hacan", "Blue");
-        Player red = new Player("Pompey", "The Federation of Sol", "Red");
+        Player blue = new Player("Crassus", "The Emirates of Hacan", galaxy);
+        Player red = new Player("Pompey", "The Federation of Sol", galaxy);
 
         // systems
         List<HexaSystem> sampleSystems = new ArrayList<>();
@@ -107,6 +107,30 @@ public class Galaxy {
         galaxy.getSystems().get(1).addShip(new CruiserUnit(red));
         galaxy.getSystems().get(1).addShip(new CruiserUnit(red));
         galaxy.getSystems().get(1).addShip(new CarrierUnit(red));
+    }
+
+    // problem 11
+    public void createPlanetaryControlFile() throws IOException {
+        Path planetaryControlFile = Paths.get( "src/planetary-control.txt");
+        Files.deleteIfExists(planetaryControlFile);
+        Files.createFile(planetaryControlFile);
+        PrintWriter writer = new PrintWriter("src/planetary-control.txt", "UTF-8");
+
+        // for every player in the galaxy, write headliner
+        for(Player e : this.getPlayers()) {
+            writer.println(String.format("%-15s %s (%s)",
+                    e.getColor() + " Player:", e.getName(), e.getRace()));
+
+
+            // for every planet the player controls, write planet name
+            for(Planet p : e.getControlledPlanets()) {
+                writer.println(String.format("%15s %s", "", p.getName()));
+            }
+
+            // add newline once player no longer controls any planets
+            writer.print("\n");
+        }
+        writer.close();
     }
 
     // Problem 9
@@ -202,14 +226,6 @@ public class Galaxy {
         return planets;
     }
 
-    private void checkNeighborValidity(Galaxy galaxy, HexaSystem e) {
-        List<HexaSystem> systems = galaxy.getSystems();
-        int i = galaxy.getSystems().indexOf(e);
-        if(systems.get(i).getCardinal().equals("Center")) {
-            systems.get(i).getNeighbors().size();
-        }
-    }
-
     // helpermethods
     // only run in generateGalaxy
     private void generateSystems(Galaxy galaxy) {
@@ -217,7 +233,7 @@ public class Galaxy {
                 "South East", "South West"};
 
         // for each cardinal in cardinals[], add new system to list
-        for (String e : cardinals) {
+        for(int i = 0; i < 7; i++) {
             galaxy.getSystems().add(new HexaSystem(galaxy));
         }
 
@@ -248,7 +264,6 @@ public class Galaxy {
 
     // only run in generateGalaxy
     private void generatePlayers(Galaxy galaxy) {
-        String[] colors = {"Green", "Red", "Yellow", "Purple", "Black", "Blue"};
         Random rand = new Random();
 
         try {
@@ -257,8 +272,7 @@ public class Galaxy {
 
             for(int i = 0; i < rand.nextInt(5) + 2; i++) {
                 galaxy.getPlayers().add(new Player(playerNames.get(rand.nextInt(playerNames.size())),
-                        playerRaces.get(rand.nextInt(playerRaces.size())),
-                        colors[rand.nextInt(colors.length)]));
+                        playerRaces.get(rand.nextInt(playerRaces.size())), galaxy));
             }
             for(Player e : galaxy.getPlayers()) {
                 generateShips(e);
@@ -297,13 +311,47 @@ public class Galaxy {
 
     private void addPlayerShipsToRandomSystems(Player player, Galaxy galaxy) {
         Random rand = new Random();
-        int numberOfSystems = 7;
+        int systemBoundary = 7;
+
         for(Unit e : player.getShips()) {
-            int randomNumber = rand.nextInt(numberOfSystems);
-            if(galaxy.getSystems().get(randomNumber).getPlayersInSystem().size() < 2) {
-                galaxy.getSystems().get(randomNumber).addShip(e);
+            int randomNumber = rand.nextInt(systemBoundary);
+            HexaSystem randomSystem = galaxy.getSystems().get(randomNumber);
+            if(randomSystem.getPlayersInSystem().size() < 2
+                    || randomSystem.getPlayersInSystem().contains(player)) {
+                randomSystem.addShip(e);
+            } else {
+                for(HexaSystem s : galaxy.getSystems()) {
+                    if(s.getPlayersInSystem().contains(player)) {
+                        s.getSystemShips().add(e);
+                    }
+                }
             }
         }
+    }
+
+    private List<HexaSystem> findSystemsPlayerIsIn(Galaxy galaxy, Player player) {
+        List<HexaSystem> systemsPlayerIsIn = new ArrayList<>();
+
+        for(HexaSystem e : galaxy.getSystems()) {
+            if(e.getPlayersInSystem().equals(player)) {
+                systemsPlayerIsIn.add(e);
+            }
+        }
+        return systemsPlayerIsIn;
+    }
+
+    private List<Unit> getRandomAmountOfPlayerShips(Player player) {
+        List<Unit> listOfRandomShips = new ArrayList<>();
+        Random rand = new Random();
+        int playerShipPoolSize = player.getShips().size();
+        int adjustment = rand.nextInt(4);
+        int randomAmountOfShips = rand.nextInt(playerShipPoolSize) - adjustment;
+
+        for(int i = 0; i < randomAmountOfShips; i++) {
+            listOfRandomShips.add(player.getShips().get(i));
+        }
+
+        return listOfRandomShips;
     }
 
     private List<String> getPlanetNamesFromFile() throws IOException {
@@ -354,8 +402,9 @@ public class Galaxy {
 
         for(HexaSystem e : systems) {
             if(e.getPlayersInSystem().size() > 1) {
-                e.concludeCombat(e.getPlayersInSystem().get(indexOfPlayerOne),
-                        e.getPlayersInSystem().get(indexOfPlayerTwo));
+                Player winner = e.concludeCombat(e.getPlayersInSystem().get(indexOfPlayerOne), e.getPlayersInSystem().get(indexOfPlayerTwo));
+                System.out.println("A battle was fought in the " + e.getCardinal() + " system, " + "and " + winner.getName() + "(" + winner.getColor() + ", " + winner.getRace() + ") is the winner!");
+                winner.getControlledPlanets().addAll(e.getSystemPlanets());
             }
         }
     }
