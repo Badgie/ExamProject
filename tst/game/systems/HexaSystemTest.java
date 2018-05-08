@@ -1,3 +1,5 @@
+package game.systems;
+
 import game.galaxy.Galaxy;
 import game.planets.Planet;
 import game.player.Player;

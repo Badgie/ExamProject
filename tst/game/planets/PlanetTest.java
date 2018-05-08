@@ -1,3 +1,5 @@
+package game.planets;
+
 import game.planets.Planet;
 import org.junit.jupiter.api.Test;
 

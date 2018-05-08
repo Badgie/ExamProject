@@ -1,3 +1,5 @@
+package game.player;
+
 import game.galaxy.Galaxy;
 import game.player.Player;
 import org.junit.jupiter.api.Test;
