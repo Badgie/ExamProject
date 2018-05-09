@@ -1,9 +1,14 @@
+/*
+ * Made by:
+ * Jonas Krogh Hansen, Software
+ * jh17@student.aau.dk
+ */
+
 package game.systems;
 
 import game.galaxy.Galaxy;
 import game.planets.Planet;
 import game.player.Player;
-import game.systems.HexaSystem;
 import game.units.*;
 import org.junit.jupiter.api.Test;
 

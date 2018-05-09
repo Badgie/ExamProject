@@ -1,6 +1,11 @@
+/*
+ * Made by:
+ * Jonas Krogh Hansen, Software
+ * jh17@student.aau.dk
+ */
+
 package game.galaxy;
 
-import game.galaxy.Galaxy;
 import game.planets.Planet;
 import game.player.Player;
 import game.systems.HexaSystem;
@@ -9,9 +14,6 @@ import game.units.CarrierUnit;
 import game.units.CruiserUnit;
 import game.units.DestroyerUnit;
 import game.units.DreadnoughtUnit;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
