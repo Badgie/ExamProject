@@ -1,3 +1,9 @@
+/*
+ * Made by:
+ * Jonas Krogh Hansen, Software
+ * jh17@student.aau.dk
+ */
+
 package game.systems;
 
 import game.galaxy.Galaxy;
