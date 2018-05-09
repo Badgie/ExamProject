@@ -18,5 +18,5 @@ class PlanetTest {
         assertTrue(planet.getName().equals("Planet on a cob"));
         assertTrue(planet.getResourceProduction() <= 6 && planet.getResourceProduction() >= 0);
     }
-    
+
 }

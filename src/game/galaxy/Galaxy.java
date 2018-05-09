@@ -40,7 +40,7 @@ public class Galaxy extends GalaxyGenerator {
         List<Unit> ships;
 
         // for each system in galaxy
-        for(HexaSystem e : systems) {
+        for (HexaSystem e : systems) {
 
             // get ships in system and add to list shipsInGalaxy
             ships = e.getSystemShips();
@@ -54,7 +54,7 @@ public class Galaxy extends GalaxyGenerator {
         List<Planet> planets;
 
         // for each system in galaxy
-        for(HexaSystem e : systems) {
+        for (HexaSystem e : systems) {
 
             // get planets in system and add to list planetsInGalaxy
             planets = e.getSystemPlanets();
@@ -116,7 +116,7 @@ public class Galaxy extends GalaxyGenerator {
 
     // problem 11
     public void createPlanetaryControlFile() throws IOException {
-        Path planetaryControlFile = Paths.get( "src/planetary-control.txt");
+        Path planetaryControlFile = Paths.get("src/planetary-control.txt");
 
         // if file already exists, delete it and create new
         Files.deleteIfExists(planetaryControlFile);
@@ -124,13 +124,12 @@ public class Galaxy extends GalaxyGenerator {
         PrintWriter writer = new PrintWriter("src/planetary-control.txt", "UTF-8");
 
         // for every player in the galaxy, write headliner
-        for(Player e : this.getPlayers()) {
-            writer.println(String.format("%-15s %s (%s)",
-                    e.getColor() + " Player:", e.getName(), e.getRace()));
+        for (Player e : this.getPlayers()) {
+            writer.println(String.format("%-15s %s (%s)", e.getColor() + " Player:", e.getName(), e.getRace()));
 
 
             // for every planet the player controls, write planet name
-            for(Planet p : e.getControlledPlanets()) {
+            for (Planet p : e.getControlledPlanets()) {
                 writer.println(String.format("%15s %s", "", p.getName()));
             }
 
@@ -147,23 +146,20 @@ public class Galaxy extends GalaxyGenerator {
         int indexOfPlayerTwo = 1;
 
         // for each system in galaxy
-        for(HexaSystem e : systems) {
+        for (HexaSystem e : systems) {
 
             // if there is more than one player in system
-            if(e.getPlayersInSystem().size() > 1) {
+            if (e.getPlayersInSystem().size() > 1) {
 
                 // find winner from combat
-                Player winner = e.concludeCombat(e.getPlayersInSystem().get(indexOfPlayerOne),
-                        e.getPlayersInSystem().get(indexOfPlayerTwo));
-                System.out.println("A battle was fought in the " + e.getCardinal() + " system, " +
-                        "and " + winner.getName() + "(" + winner.getColor() + ", " +
-                        winner.getRace() + ") is the winner!");
+                Player winner = e.concludeCombat(e.getPlayersInSystem().get(indexOfPlayerOne), e.getPlayersInSystem().get(indexOfPlayerTwo));
+                System.out.println("A battle was fought in the " + e.getCardinal() + " system, " + "and " + winner.getName() + "(" + winner.getColor() + ", " + winner.getRace() + ") is the winner!");
 
                 // add all planets to list of planets controlled by player
                 winner.getControlledPlanets().addAll(e.getSystemPlanets());
 
                 // for each planet in system, set winner as player in control
-                for(Planet p : e.getSystemPlanets()) {
+                for (Planet p : e.getSystemPlanets()) {
                     p.setPlayerInControl(winner);
                 }
             }

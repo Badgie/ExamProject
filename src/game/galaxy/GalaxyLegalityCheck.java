@@ -24,7 +24,7 @@ public class GalaxyLegalityCheck {
         // check if center system is legal
         try {
             condOne = checkCenterGalaxyPlanets(galaxy);
-        } catch(CenterSystemNotLegalException x) {
+        } catch (CenterSystemNotLegalException x) {
 
             // if exception is thrown, catch and print stack trace
             x.printStackTrace();
@@ -33,7 +33,7 @@ public class GalaxyLegalityCheck {
         // check if duplicate planets exist
         try {
             condTwo = checkForDuplicatePlanets(galaxy);
-        } catch(PlanetExistsMoreThanOnceInGalaxyException x) {
+        } catch (PlanetExistsMoreThanOnceInGalaxyException x) {
 
             // if exception is thrown, catch and print stack trace
             x.printStackTrace();
@@ -42,7 +42,7 @@ public class GalaxyLegalityCheck {
         // check if a system contains more than three planets
         try {
             condThree = checkForMoreThanThreePlanets(galaxy);
-        } catch(SystemContainsMoreThanThreePlanetsException x) {
+        } catch (SystemContainsMoreThanThreePlanetsException x) {
 
             // if exception is thrown, catch and print stack trace
             x.printStackTrace();
@@ -62,7 +62,7 @@ public class GalaxyLegalityCheck {
     private boolean checkCenterGalaxyPlanets(Galaxy galaxy) throws CenterSystemNotLegalException {
 
         // for each system in galaxy
-        for(HexaSystem e : galaxy.getSystems()) {
+        for (HexaSystem e : galaxy.getSystems()) {
 
             // if system is center, check each planet
             if (e.getCardinal().equals("Center")) {
@@ -82,7 +82,7 @@ public class GalaxyLegalityCheck {
     private boolean checkForDuplicatePlanets(Galaxy galaxy) throws PlanetExistsMoreThanOnceInGalaxyException {
 
         // if amount of planets in galaxy equals filtered planets, return true, else throw exception
-        if(galaxy.getPlanets().size() == getGalaxyPlanetNamesFiltered(galaxy).size()) {
+        if (galaxy.getPlanets().size() == getGalaxyPlanetNamesFiltered(galaxy).size()) {
             return true;
         } else {
             throw new PlanetExistsMoreThanOnceInGalaxyException();
@@ -93,10 +93,10 @@ public class GalaxyLegalityCheck {
     private boolean checkForMoreThanThreePlanets(Galaxy galaxy) throws SystemContainsMoreThanThreePlanetsException {
 
         // for each system in galaxy
-        for(HexaSystem e : galaxy.getSystems()) {
+        for (HexaSystem e : galaxy.getSystems()) {
 
             // if amount of planets in system is three or less, continue, else throw exception
-            if(e.getSystemPlanets().size() <= 3) {
+            if (e.getSystemPlanets().size() <= 3) {
             } else {
                 throw new SystemContainsMoreThanThreePlanetsException();
             }
@@ -108,12 +108,12 @@ public class GalaxyLegalityCheck {
     private boolean checkCardinalDirections(Galaxy galaxy) {
 
         // for each system in galaxy
-        for(HexaSystem e : galaxy.getSystems()) {
+        for (HexaSystem e : galaxy.getSystems()) {
 
             // try checking if neighbors match
             try {
                 e.checkIfNeighborsMatch(e);
-            } catch(SystemHasIncorrectNeighborsException x) {
+            } catch (SystemHasIncorrectNeighborsException x) {
 
                 // if exception is thrown, catch and print stack trace
                 x.printStackTrace();
@@ -129,7 +129,7 @@ public class GalaxyLegalityCheck {
         HashSet<String> array = new HashSet<>();
 
         // for each planet in galaxy, add name to hash set
-        for(Planet e : galaxy.getPlanets()) {
+        for (Planet e : galaxy.getPlanets()) {
             array.add(e.getName());
         }
         return array;
@@ -139,7 +139,7 @@ public class GalaxyLegalityCheck {
         ArrayList<String> array = new ArrayList<>();
 
         // for each planet in system, add name to list
-        for(Planet e : system.getSystemPlanets()) {
+        for (Planet e : system.getSystemPlanets()) {
             array.add(e.getName());
         }
         return array;
@@ -149,10 +149,10 @@ public class GalaxyLegalityCheck {
         ArrayList<Planet> systemPlanets = new ArrayList<>();
 
         // loop through systems
-        for(int i = 0; i < galaxy.getSystems().size(); i++) {
+        for (int i = 0; i < galaxy.getSystems().size(); i++) {
 
             // if system is center system, add all planets to list
-            if(galaxy.getSystems().get(i).getCardinal().equals("Center")) {
+            if (galaxy.getSystems().get(i).getCardinal().equals("Center")) {
                 systemPlanets.addAll(galaxy.getSystems().get(i).getSystemPlanets());
             }
         }

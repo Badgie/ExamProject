@@ -41,10 +41,10 @@ public class HexaSystemPositions extends HexaSystemPositionsCheckIfCorrect {
     private void setNeighborsCenter(Galaxy galaxy, HexaSystem system) {
 
         // for each system in galaxy
-        for(HexaSystem e : galaxy.getSystems()) {
+        for (HexaSystem e : galaxy.getSystems()) {
 
             // if system is not itself, add to neighbors
-            if(e != system) {
+            if (e != system) {
                 system.addNeighbor(e);
             }
         }
@@ -56,10 +56,10 @@ public class HexaSystemPositions extends HexaSystemPositionsCheckIfCorrect {
         addCenterSystemAsNeighbor(galaxy, system);
 
         // for each system in galaxy
-        for(HexaSystem e : galaxy.getSystems()) {
+        for (HexaSystem e : galaxy.getSystems()) {
 
             // if system cardinal matches required North neighbors, add to input system neighbors
-            if(e.getCardinal().equals("NorthEast") || e.getCardinal().equals("NorthWest")) {
+            if (e.getCardinal().equals("NorthEast") || e.getCardinal().equals("NorthWest")) {
                 system.addNeighbor(e);
             }
         }
@@ -80,16 +80,16 @@ public class HexaSystemPositions extends HexaSystemPositionsCheckIfCorrect {
         }
     }
 
-    private void setNeighborsNorthWest(Galaxy galaxy, HexaSystem system){
+    private void setNeighborsNorthWest(Galaxy galaxy, HexaSystem system) {
 
         // add center system as neighbor
         addCenterSystemAsNeighbor(galaxy, system);
 
         // for each system in galaxy
-        for(HexaSystem e : galaxy.getSystems()) {
+        for (HexaSystem e : galaxy.getSystems()) {
 
             // if system cardinal matches required NorthWest neighbors, add to input system neighbors
-            if(e.getCardinal().equals("North") || e.getCardinal().equals("SouthWest")) {
+            if (e.getCardinal().equals("North") || e.getCardinal().equals("SouthWest")) {
                 system.addNeighbor(e);
             }
         }
@@ -102,7 +102,7 @@ public class HexaSystemPositions extends HexaSystemPositionsCheckIfCorrect {
         addCenterSystemAsNeighbor(galaxy, system);
 
         // for each system in galaxy
-        for(HexaSystem e : galaxy.getSystems()) {
+        for (HexaSystem e : galaxy.getSystems()) {
 
             // if system cardinal matches required South neighbors, add to input system neighbors
             if (e.getCardinal().equals("SouthEast") || e.getCardinal().equals("SouthWest")) {
@@ -117,7 +117,7 @@ public class HexaSystemPositions extends HexaSystemPositionsCheckIfCorrect {
         addCenterSystemAsNeighbor(galaxy, system);
 
         // for each system in galaxy
-        for(HexaSystem e : galaxy.getSystems()) {
+        for (HexaSystem e : galaxy.getSystems()) {
 
             // if system cardinal matches required SouthEast neighbors, add to input system neighbors
             if (e.getCardinal().equals("South") || e.getCardinal().equals("NorthEast")) {
@@ -132,7 +132,7 @@ public class HexaSystemPositions extends HexaSystemPositionsCheckIfCorrect {
         addCenterSystemAsNeighbor(galaxy, system);
 
         // for each system in galaxy
-        for(HexaSystem e : galaxy.getSystems()) {
+        for (HexaSystem e : galaxy.getSystems()) {
 
             // if system cardinal matches required SouthWest neighbors, add to input system neighbors
             if (e.getCardinal().equals("South") || e.getCardinal().equals("NorthWest")) {
@@ -144,10 +144,10 @@ public class HexaSystemPositions extends HexaSystemPositionsCheckIfCorrect {
     private void addCenterSystemAsNeighbor(Galaxy galaxy, HexaSystem system) {
 
         // for each system in galaxy
-        for(HexaSystem e : galaxy.getSystems()) {
+        for (HexaSystem e : galaxy.getSystems()) {
 
             // if system is center system, add to input system neighbors
-            if(e.getCardinal().equals("Center")) {
+            if (e.getCardinal().equals("Center")) {
                 system.addNeighbor(e);
             }
         }
