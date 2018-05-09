@@ -33,8 +33,8 @@ public class GalaxyGenerator extends GalaxyLegalityCheck {
 
         // try galaxy legality check
         try {
-            if(checkIfGalaxyIsLegal(galaxy));
-        } catch(GalaxyNotLegalException e) {
+            if (checkIfGalaxyIsLegal(galaxy)) ;
+        } catch (GalaxyNotLegalException e) {
 
             // if exception is thrown, catch and print stack trace
             e.printStackTrace();
@@ -48,12 +48,12 @@ public class GalaxyGenerator extends GalaxyLegalityCheck {
         int amountOfSystems = 7;
 
         // until i reaches amountOfSystems, create new system in galaxy
-        for(int i = 0; i < amountOfSystems; i++) {
+        for (int i = 0; i < amountOfSystems; i++) {
             galaxy.getSystems().add(new HexaSystem(galaxy));
         }
 
         // for each system in galaxy, set neighbors
-        for(HexaSystem e : galaxy.getSystems()) {
+        for (HexaSystem e : galaxy.getSystems()) {
             e.setNeighborsInSystems(galaxy, e);
 
         }
@@ -84,7 +84,7 @@ public class GalaxyGenerator extends GalaxyLegalityCheck {
                     }
                 }
             }
-        } catch(IOException e) {
+        } catch (IOException e) {
 
             // if exception is thrown, catch and print stack trace
             e.printStackTrace();
@@ -104,13 +104,12 @@ public class GalaxyGenerator extends GalaxyLegalityCheck {
 
             // generate random amount of players between 2...6 and add to galaxy
             // players get random name and race from .txt files
-            for(int i = 0; i < rand.nextInt(5) + 2; i++) {
-                galaxy.getPlayers().add(new Player(playerNames.get(rand.nextInt(playerNames.size())),
-                        playerRaces.get(rand.nextInt(playerRaces.size())), galaxy));
+            for (int i = 0; i < rand.nextInt(5) + 2; i++) {
+                galaxy.getPlayers().add(new Player(playerNames.get(rand.nextInt(playerNames.size())), playerRaces.get(rand.nextInt(playerRaces.size())), galaxy));
             }
 
             // for each player, generate ships and add to random systems
-            for(Player e : galaxy.getPlayers()) {
+            for (Player e : galaxy.getPlayers()) {
                 generateShips(e);
                 addPlayerShipsToRandomSystems(e, galaxy);
             }
@@ -130,11 +129,11 @@ public class GalaxyGenerator extends GalaxyLegalityCheck {
         Random rand = new Random();
 
         // generate a random ship until upper boundary is reached
-        for(int i = 0; i < maxShips; i++) {
+        for (int i = 0; i < maxShips; i++) {
             int randomShip = rand.nextInt(4);
 
             // case based on random number 0...3
-            switch(randomShip) {
+            switch (randomShip) {
                 case 0:
                     player.getShips().add(new DreadnoughtUnit(player));
                     break;
@@ -157,7 +156,7 @@ public class GalaxyGenerator extends GalaxyLegalityCheck {
         int systemBoundary = 7;
 
         // for each unit a player owns
-        for(Unit e : player.getShips()) {
+        for (Unit e : player.getShips()) {
 
             // get random system
             int randomNumber = rand.nextInt(systemBoundary);
@@ -165,12 +164,11 @@ public class GalaxyGenerator extends GalaxyLegalityCheck {
 
             // if random system has less than two players, add unit
             // else, for each system player is in, add unit
-            if(randomSystem.getPlayersInSystem().size() < 2
-                    || randomSystem.getPlayersInSystem().contains(player)) {
+            if (randomSystem.getPlayersInSystem().size() < 2 || randomSystem.getPlayersInSystem().contains(player)) {
                 randomSystem.addShip(e);
             } else {
-                for(HexaSystem s : galaxy.getSystems()) {
-                    if(s.getPlayersInSystem().contains(player)) {
+                for (HexaSystem s : galaxy.getSystems()) {
+                    if (s.getPlayersInSystem().contains(player)) {
                         s.getSystemShips().add(e);
                     }
                 }
@@ -184,11 +182,11 @@ public class GalaxyGenerator extends GalaxyLegalityCheck {
         Path planetNamesFile = Paths.get("src/game/galaxy", "planet-names.txt");
 
         // try creating reader for file
-        try(BufferedReader planetNamesReader = Files.newBufferedReader(planetNamesFile, charset)) {
+        try (BufferedReader planetNamesReader = Files.newBufferedReader(planetNamesFile, charset)) {
             String lineFromFile;
 
             // loop through lines and add to list while EOF is not reached
-            while((lineFromFile = planetNamesReader.readLine()) != null) {
+            while ((lineFromFile = planetNamesReader.readLine()) != null) {
                 planetNames.add(lineFromFile);
             }
         }
@@ -201,11 +199,11 @@ public class GalaxyGenerator extends GalaxyLegalityCheck {
         Path playerRacesFile = Paths.get("src/game/galaxy", "player-races.txt");
 
         // try creating reader for file
-        try(BufferedReader playerRacesReader = Files.newBufferedReader(playerRacesFile, charset)) {
+        try (BufferedReader playerRacesReader = Files.newBufferedReader(playerRacesFile, charset)) {
             String lineFromFile;
 
             // loop through lines and add to list while EOF is not reached
-            while((lineFromFile = playerRacesReader.readLine()) != null) {
+            while ((lineFromFile = playerRacesReader.readLine()) != null) {
                 raceNames.add(lineFromFile);
             }
         }
@@ -218,11 +216,11 @@ public class GalaxyGenerator extends GalaxyLegalityCheck {
         Path playerNamesFile = Paths.get("src/game/galaxy", "player-names.txt");
 
         // try creating reader for file
-        try(BufferedReader playerNamesReader = Files.newBufferedReader(playerNamesFile, charset)) {
+        try (BufferedReader playerNamesReader = Files.newBufferedReader(playerNamesFile, charset)) {
             String lineFromFile;
 
             // loop through lines and add to list while EOF is not reached
-            while((lineFromFile = playerNamesReader.readLine()) != null) {
+            while ((lineFromFile = playerNamesReader.readLine()) != null) {
                 playerNames.add(lineFromFile);
             }
         }

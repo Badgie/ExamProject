@@ -65,8 +65,7 @@ public class HexaSystem extends HexaSystemPositions {
     }
 
     private String setNewCardinal(Galaxy galaxy) {
-        String[] cardinalDirections = {"Center", "North", "NorthEast", "NorthWest",
-                "South", "SouthEast", "SouthWest"};
+        String[] cardinalDirections = {"Center", "North", "NorthEast", "NorthWest", "South", "SouthEast", "SouthWest"};
 
         // as systems are created, amountOfSystems will change to ensure a system isn't created more than once
         int amountOfSystems = galaxy.getSystems().size();
@@ -85,11 +84,10 @@ public class HexaSystem extends HexaSystemPositions {
         setPlayerShipsInSystem(playerOne);
         setPlayerShipsInSystem(playerTwo);
 
-        while(true) {
+        while (true) {
 
             // if playerTwo has no more ships, set playerOne as winner and break loop
-            if(playerTwo.getShipsInCombatSorted().size() > 0
-                    && playerTwo.getShipsInCombatSorted() != null) {
+            if (playerTwo.getShipsInCombatSorted().size() > 0 && playerTwo.getShipsInCombatSorted() != null) {
                 calculateHitsDoneByPlayerOne(playerOne, playerTwo);
             } else {
                 winner = playerOne;
@@ -97,8 +95,7 @@ public class HexaSystem extends HexaSystemPositions {
             }
 
             // if playerOne has no more ships, set playerTwo as winner and break loop
-            if(playerOne.getShipsInCombatSorted().size() > 0
-                    && playerTwo.getShipsInCombatSorted() != null) {
+            if (playerOne.getShipsInCombatSorted().size() > 0 && playerTwo.getShipsInCombatSorted() != null) {
                 calculateHitsDoneByPlayerTwo(playerOne, playerTwo);
             } else {
                 winner = playerTwo;
@@ -123,8 +120,7 @@ public class HexaSystem extends HexaSystemPositions {
             // if diceRoll is higher than the unit's combat val and if playerTwo still has ships
             // remove playerOne's worst ship
             // ships and shipsInCombat are two different lists - remove from both
-            if (diceRoll >= e.getCombatValue()
-                    && playerTwo.getShipsInCombatSorted().size() > 0) {
+            if (diceRoll >= e.getCombatValue() && playerTwo.getShipsInCombatSorted().size() > 0) {
                 playerTwo.getShipsInCombatSorted().remove(getPlayerWorstShipInSystem(playerTwo));
                 playerTwo.getShips().remove(getPlayerWorstShipInSystem(playerTwo));
             } else {
@@ -143,8 +139,7 @@ public class HexaSystem extends HexaSystemPositions {
             // if diceRoll is higher than the unit's combat val and if playerOne still has ships
             // remove playerOne's worst ship
             // ships and shipsInCombat are two different lists - remove from both
-            if (diceRoll >= e.getCombatValue()
-                    && playerOne.getShipsInCombatSorted().size() > 0) {
+            if (diceRoll >= e.getCombatValue() && playerOne.getShipsInCombatSorted().size() > 0) {
                 playerOne.getShipsInCombatSorted().remove(getPlayerWorstShipInSystem(playerOne));
                 playerOne.getShips().remove(getPlayerWorstShipInSystem(playerOne));
             } else {
@@ -155,7 +150,7 @@ public class HexaSystem extends HexaSystemPositions {
 
     public Unit getPlayerWorstShipInSystem(Player player) {
         // returns the first index of the players sorted ships
-        if(player.getShipsInCombatSorted().size() > 0) {
+        if (player.getShipsInCombatSorted().size() > 0) {
             return player.getShipsInCombatSorted().get(0);
         } else {
             return null;
@@ -165,11 +160,10 @@ public class HexaSystem extends HexaSystemPositions {
     public void setPlayerShipsInSystem(Player player) {
 
         // for each unit in this system
-        for(Unit e : this.ships) {
+        for (Unit e : this.ships) {
 
             // if the ship's owner matches input player, add to player.shipsInCombat
-            if(e.getOwner().equals(player))
-                player.addShipInCombat(e);
+            if (e.getOwner().equals(player)) player.addShipInCombat(e);
         }
     }
 
@@ -177,10 +171,10 @@ public class HexaSystem extends HexaSystemPositions {
         List<Player> playersInSystem = new ArrayList<>();
 
         // for each unit in this system
-        for(Unit e : this.ships) {
+        for (Unit e : this.ships) {
 
             // if list playersInSystem does not contain the unit's owner, add the owner to list
-            if(!playersInSystem.contains(e.getOwner())) {
+            if (!playersInSystem.contains(e.getOwner())) {
                 playersInSystem.add(e.getOwner());
             }
         }
